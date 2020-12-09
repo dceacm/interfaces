@@ -35,7 +35,7 @@
             // 
             // btn_Consulta
             // 
-            this.btn_Consulta.Location = new System.Drawing.Point(316, 119);
+            this.btn_Consulta.Location = new System.Drawing.Point(83, 131);
             this.btn_Consulta.Name = "btn_Consulta";
             this.btn_Consulta.Size = new System.Drawing.Size(75, 23);
             this.btn_Consulta.TabIndex = 5;
@@ -44,7 +44,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(316, 171);
+            this.button2.Location = new System.Drawing.Point(83, 203);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -53,18 +53,19 @@
             // 
             // btn_Alta
             // 
-            this.btn_Alta.Location = new System.Drawing.Point(316, 54);
+            this.btn_Alta.Location = new System.Drawing.Point(83, 66);
             this.btn_Alta.Name = "btn_Alta";
             this.btn_Alta.Size = new System.Drawing.Size(75, 23);
             this.btn_Alta.TabIndex = 3;
             this.btn_Alta.Text = "Alta";
             this.btn_Alta.UseVisualStyleBackColor = true;
+            this.btn_Alta.Click += new System.EventHandler(this.btn_Alta_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(257, 450);
             this.Controls.Add(this.btn_Consulta);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_Alta);

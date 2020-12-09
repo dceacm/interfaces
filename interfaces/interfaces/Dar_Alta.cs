@@ -10,19 +10,16 @@ using System.Windows.Forms;
 
 namespace interfaces
 {
-    public partial class Form1 : Form
+    public partial class Dar_Alta : Form
     {
-        public Form1()
+        public Dar_Alta()
         {
             InitializeComponent();
         }
 
-        private void btn_Alta_Click(object sender, EventArgs e)
+        private void dtp_Fecha_ValueChanged(object sender, EventArgs e)
         {
-            this.Visible = false;
-            Dar_Alta da = new Dar_Alta();
-            da.ShowDialog();
-            this.Visible = true;
+            tb_Carpeta.Text = dtp_Fecha.Value.Year.ToString().Substring(2);
         }
     }
 }
