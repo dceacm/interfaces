@@ -24,5 +24,13 @@ namespace interfaces
             da.ShowDialog();
             this.Visible = true;
         }
+
+        private void btn_Consulta_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Consultas c = new Consultas();
+            c.ShowDialog();
+            this.Visible = true;
+        }
     }
 }
