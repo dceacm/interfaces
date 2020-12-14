@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 450);
+            this.ClientSize = new System.Drawing.Size(238, 307);
             this.Controls.Add(this.btn_Consulta);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_Alta);
