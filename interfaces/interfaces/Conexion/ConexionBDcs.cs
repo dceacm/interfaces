@@ -32,6 +32,24 @@ namespace interfaces.Conexion
                 cmd.ExecuteNonQuery();
             }
         }
+        public string GetLastID()
+        {
+            string id = string.Empty;
+            string queryString = "SELECT TOP 1 OrdenCarpeta FROM Documento ORDER BY OrdenCarpeta DESC;";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(queryString, con))
+            {
 
+                con.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        id = (int.Parse(reader["OrdenCarpeta"].ToString()) + 1).ToString();
+                    }
+                }
+            }
+            return id;
+        }
     }
 }

@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using interfaces.Conexion;
 
 namespace interfaces
 {
     public partial class Dar_Alta : Form
     {
         DateTime? date;
+        ConexionBDcs conexionBDcs = new ConexionBDcs();
         public Dar_Alta()
         {
             InitializeComponent();
@@ -30,22 +32,7 @@ namespace interfaces
 
         private void tb_Carpeta_TextChanged(object sender, EventArgs e)
         {
-            //string id = string.Empty;
-            //string queryString = "SELECT TOP 1 Orden FROM Personas ORDER BY Orden DESC;";
-            //using (SqlConnection con = new SqlConnection(/*connectionString*/))
-            //using (SqlCommand cmd = new SqlCommand(queryString, con))
-            //{
-
-            //    con.Open();
-            //    using (SqlDataReader reader = cmd.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            id = (int.Parse(reader["Orden"].ToString()) + 1).ToString();
-            //        }
-            //    }
-            //}
-            //tb_Orden.Text = id;
+            tb_Orden.Text = conexionBDcs.GetLastID();
         }
 
         private void btn_DarAlta_Click(object sender, EventArgs e)
@@ -57,6 +44,10 @@ namespace interfaces
                 string cuerpo = "Falta información de busqueda.";
                 string cabecera = "Error en la busqueda";
                 MessageBox.Show(cuerpo, cabecera, botons, icon);
+            }
+            else
+            {
+
             }
         }
 
