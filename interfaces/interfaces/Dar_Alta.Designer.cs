@@ -53,29 +53,27 @@
             this.btn_DarAlta.TabIndex = 19;
             this.btn_DarAlta.Text = "Dar Alta";
             this.btn_DarAlta.UseVisualStyleBackColor = true;
+            this.btn_DarAlta.Click += new System.EventHandler(this.btn_DarAlta_Click);
             // 
             // tb_Tema3
             // 
-            this.tb_Tema3.Location = new System.Drawing.Point(242, 369);
-            this.tb_Tema3.Multiline = true;
+            this.tb_Tema3.Location = new System.Drawing.Point(242, 393);
             this.tb_Tema3.Name = "tb_Tema3";
-            this.tb_Tema3.Size = new System.Drawing.Size(201, 62);
+            this.tb_Tema3.Size = new System.Drawing.Size(201, 20);
             this.tb_Tema3.TabIndex = 18;
             // 
             // tb_Tema1
             // 
-            this.tb_Tema1.Location = new System.Drawing.Point(242, 233);
-            this.tb_Tema1.Multiline = true;
+            this.tb_Tema1.Location = new System.Drawing.Point(242, 260);
             this.tb_Tema1.Name = "tb_Tema1";
-            this.tb_Tema1.Size = new System.Drawing.Size(201, 62);
+            this.tb_Tema1.Size = new System.Drawing.Size(201, 20);
             this.tb_Tema1.TabIndex = 17;
             // 
             // tb_Tema2
             // 
-            this.tb_Tema2.Location = new System.Drawing.Point(242, 301);
-            this.tb_Tema2.Multiline = true;
+            this.tb_Tema2.Location = new System.Drawing.Point(242, 328);
             this.tb_Tema2.Name = "tb_Tema2";
-            this.tb_Tema2.Size = new System.Drawing.Size(201, 62);
+            this.tb_Tema2.Size = new System.Drawing.Size(201, 20);
             this.tb_Tema2.TabIndex = 16;
             // 
             // dtp_Fecha
@@ -111,6 +109,7 @@
             this.tb_Carpeta.ReadOnly = true;
             this.tb_Carpeta.Size = new System.Drawing.Size(201, 20);
             this.tb_Carpeta.TabIndex = 12;
+            this.tb_Carpeta.TextChanged += new System.EventHandler(this.tb_Carpeta_TextChanged);
             // 
             // label1
             // 
@@ -158,9 +157,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(93, 260);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Tema 1";
+            this.label5.Text = "Clave 1";
             // 
             // label6
             // 
@@ -168,9 +167,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(93, 329);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.Size = new System.Drawing.Size(55, 17);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Tema 2";
+            this.label6.Text = "Clave 2";
             // 
             // label7
             // 
@@ -178,9 +177,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(93, 394);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 17);
+            this.label7.Size = new System.Drawing.Size(55, 17);
             this.label7.TabIndex = 25;
-            this.label7.Text = "Tema 3";
+            this.label7.Text = "Clave 3";
             // 
             // Dar_Alta
             // 
