@@ -50,31 +50,35 @@
             this.btn_DarAlta.Location = new System.Drawing.Point(556, 181);
             this.btn_DarAlta.Name = "btn_DarAlta";
             this.btn_DarAlta.Size = new System.Drawing.Size(153, 69);
-            this.btn_DarAlta.TabIndex = 19;
+            this.btn_DarAlta.TabIndex = 6;
             this.btn_DarAlta.Text = "Dar Alta";
             this.btn_DarAlta.UseVisualStyleBackColor = true;
             this.btn_DarAlta.Click += new System.EventHandler(this.btn_DarAlta_Click);
             // 
             // tb_Tema3
             // 
+            this.tb_Tema3.Enabled = false;
             this.tb_Tema3.Location = new System.Drawing.Point(242, 393);
             this.tb_Tema3.Name = "tb_Tema3";
             this.tb_Tema3.Size = new System.Drawing.Size(201, 20);
-            this.tb_Tema3.TabIndex = 18;
+            this.tb_Tema3.TabIndex = 5;
             // 
             // tb_Tema1
             // 
             this.tb_Tema1.Location = new System.Drawing.Point(242, 260);
             this.tb_Tema1.Name = "tb_Tema1";
             this.tb_Tema1.Size = new System.Drawing.Size(201, 20);
-            this.tb_Tema1.TabIndex = 17;
+            this.tb_Tema1.TabIndex = 3;
+            this.tb_Tema1.TextChanged += new System.EventHandler(this.tb_Tema1_TextChanged);
             // 
             // tb_Tema2
             // 
+            this.tb_Tema2.Enabled = false;
             this.tb_Tema2.Location = new System.Drawing.Point(242, 328);
             this.tb_Tema2.Name = "tb_Tema2";
             this.tb_Tema2.Size = new System.Drawing.Size(201, 20);
-            this.tb_Tema2.TabIndex = 16;
+            this.tb_Tema2.TabIndex = 4;
+            this.tb_Tema2.TextChanged += new System.EventHandler(this.tb_Tema2_TextChanged);
             // 
             // dtp_Fecha
             // 
@@ -83,7 +87,7 @@
             this.dtp_Fecha.Location = new System.Drawing.Point(242, 128);
             this.dtp_Fecha.Name = "dtp_Fecha";
             this.dtp_Fecha.Size = new System.Drawing.Size(201, 20);
-            this.dtp_Fecha.TabIndex = 15;
+            this.dtp_Fecha.TabIndex = 1;
             this.dtp_Fecha.ValueChanged += new System.EventHandler(this.dtp_Fecha_ValueChanged);
             // 
             // tb_Contenido
@@ -92,7 +96,7 @@
             this.tb_Contenido.Multiline = true;
             this.tb_Contenido.Name = "tb_Contenido";
             this.tb_Contenido.Size = new System.Drawing.Size(201, 62);
-            this.tb_Contenido.TabIndex = 14;
+            this.tb_Contenido.TabIndex = 2;
             // 
             // tb_Orden
             // 

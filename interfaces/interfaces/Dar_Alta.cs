@@ -50,9 +50,39 @@ namespace interfaces
 
         private void btn_DarAlta_Click(object sender, EventArgs e)
         {
-            if (dtp_Fecha.Text == " ")
+            if (dtp_Fecha.Text == " " || string.IsNullOrEmpty(tb_Contenido.Text)||string.IsNullOrEmpty(tb_Tema1.Text))
             {
-                tb_Contenido.Text = "vacio";
+                MessageBoxButtons botons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Exclamation;
+                string cuerpo = "Falta información de busqueda.";
+                string cabecera = "Error en la busqueda";
+                MessageBox.Show(cuerpo, cabecera, botons, icon);
+            }
+        }
+
+        private void tb_Tema1_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_Tema1.Text))
+            {
+                tb_Tema2.Enabled = true;
+            }
+            else
+            {
+                tb_Tema2.Enabled = false;
+                tb_Tema2.Text = string.Empty;
+            }
+        }
+
+        private void tb_Tema2_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_Tema2.Text))
+            {
+                tb_Tema3.Enabled = true;
+            }
+            else
+            {
+                tb_Tema3.Enabled = false;
+                tb_Tema3.Text = string.Empty;
             }
         }
     }
