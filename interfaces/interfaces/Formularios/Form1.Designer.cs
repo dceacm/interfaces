@@ -29,45 +29,49 @@
         private void InitializeComponent()
         {
             this.btn_Consulta = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btn_Alta = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Consulta
             // 
-            this.btn_Consulta.Location = new System.Drawing.Point(83, 131);
+            this.btn_Consulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_Consulta.Location = new System.Drawing.Point(92, 110);
             this.btn_Consulta.Name = "btn_Consulta";
-            this.btn_Consulta.Size = new System.Drawing.Size(75, 23);
+            this.btn_Consulta.Size = new System.Drawing.Size(83, 30);
             this.btn_Consulta.TabIndex = 5;
             this.btn_Consulta.Text = "Consultar";
             this.btn_Consulta.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(83, 203);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Consulta.Click += new System.EventHandler(this.btn_Consulta_Click);
             // 
             // btn_Alta
             // 
-            this.btn_Alta.Location = new System.Drawing.Point(83, 66);
+            this.btn_Alta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_Alta.Location = new System.Drawing.Point(92, 74);
             this.btn_Alta.Name = "btn_Alta";
-            this.btn_Alta.Size = new System.Drawing.Size(75, 23);
+            this.btn_Alta.Size = new System.Drawing.Size(83, 30);
             this.btn_Alta.TabIndex = 3;
             this.btn_Alta.Text = "Alta";
             this.btn_Alta.UseVisualStyleBackColor = true;
             this.btn_Alta.Click += new System.EventHandler(this.btn_Alta_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnSalir.Location = new System.Drawing.Point(92, 170);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(83, 30);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 307);
+            this.ClientSize = new System.Drawing.Size(257, 304);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btn_Consulta);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_Alta);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -78,8 +82,8 @@
         #endregion
 
         private System.Windows.Forms.Button btn_Consulta;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btn_Alta;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 
