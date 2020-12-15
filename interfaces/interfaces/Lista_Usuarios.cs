@@ -16,7 +16,7 @@ namespace interfaces
         private int aux;
         private string query,conexion;
 
-        public Lista_Usuarios()
+        public Lista_Usuarios(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
         {
             InitializeComponent();
         }
