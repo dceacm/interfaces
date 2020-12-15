@@ -88,7 +88,7 @@
             this.dtp_Fecha.Name = "dtp_Fecha";
             this.dtp_Fecha.Size = new System.Drawing.Size(201, 20);
             this.dtp_Fecha.TabIndex = 1;
-            this.dtp_Fecha.ValueChanged += new System.EventHandler(this.dtp_Fecha_ValueChanged);
+            this.dtp_Fecha.Leave += new System.EventHandler(this.dtp_Fecha_Leave);
             // 
             // tb_Contenido
             // 

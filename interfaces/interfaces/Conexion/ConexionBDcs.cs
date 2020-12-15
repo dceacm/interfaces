@@ -35,19 +35,13 @@ namespace interfaces.Conexion
         public string GetLastID()
         {
             string id = string.Empty;
-            string queryString = "SELECT TOP 1 OrdenCarpeta FROM Documento ORDER BY OrdenCarpeta DESC;";
+            string queryString = "SELECT ISNULL((SELECT TOP 1 OrdenCarpeta FROM Documento ORDER BY OrdenCarpeta DESC),0);";
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
 
                 con.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        id = (int.Parse(reader["OrdenCarpeta"].ToString()) + 1).ToString();
-                    }
-                }
+                id = (int.Parse(cmd.ExecuteScalar().ToString())+1).ToString();              
             }
             return id;
         }
