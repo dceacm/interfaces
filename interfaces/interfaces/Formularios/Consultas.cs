@@ -22,7 +22,60 @@ namespace interfaces
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
-        {           
+        {
+            if(cbTema1.Checked && txtTema1.Text=="")
+            {
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 1.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else if (cbTema2.Checked && txtTema2.Text == "")
+            {
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 2.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else if (cbTema3.Checked && txtTema3.Text == "")
+            {
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 3.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else if (cbContenido.Checked && txtContenido.Text == "")
+            {
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del contenido.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+            else
+            {
+                bool t1 = false;
+                bool t2 = false;
+                bool t3 = false;
+                bool c = false;
+                string tema1 = null;
+                string tema2 = null;
+                string tema3 = null;
+                string contenido = null;
+
+                if (cbTema1.Checked)
+                {
+                    t1 = true;
+                    tema1 = txtTema1.Text;
+                }
+                if (cbTema2.Checked)
+                {
+                    t2 = true;
+                    tema2 = txtTema2.Text;
+                }
+                if (cbTema3.Checked)
+                {
+                    t3 = true;
+                    tema3 = txtTema3.Text;
+                }
+                if (cbContenido.Checked)
+                {
+                    c = true;
+                    contenido = txtContenido.Text;
+                }
+
+                Lista_Usuarios l = new Lista_Usuarios(t1, t2, t3, c, tema1, tema2, tema3, contenido);
+                this.Visible = false;
+                l.ShowDialog();
+                this.Visible = true;
+            }            
         }       
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -71,8 +124,8 @@ namespace interfaces
             if (cbContenido.Checked)
             {
                 txtContenido.Visible = true;
-                btnVolver.Location = new Point(171, 305);
-                groupBox1.Size = new Size(477, 287);
+                btnVolver.Location = new Point(171, 316);
+                groupBox1.Size = new Size(477, 300);
                 this.Size = new Size(521, 414);
             }
             else
