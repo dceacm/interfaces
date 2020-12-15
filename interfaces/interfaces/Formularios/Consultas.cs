@@ -124,8 +124,8 @@ namespace interfaces
             if (cbContenido.Checked)
             {
                 txtContenido.Visible = true;
-                btnVolver.Location = new Point(171, 305);
-                groupBox1.Size = new Size(477, 287);
+                btnVolver.Location = new Point(171, 316);
+                groupBox1.Size = new Size(477, 300);
                 this.Size = new Size(521, 414);
             }
             else
