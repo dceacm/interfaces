@@ -210,8 +210,8 @@
             this.Controls.Add(this.tb_Carpeta);
             this.Controls.Add(this.label1);
             this.Name = "Dar_Alta";
-            this.Text = "Dar_Alta";
-            this.Load += new System.EventHandler(this.Dar_Alta_Load);
+            this.Text = "Alta";
+            this.Load += new System.EventHandler(this.Dar_Alta_Load);          
             this.ResumeLayout(false);
             this.PerformLayout();
 
