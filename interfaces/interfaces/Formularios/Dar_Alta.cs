@@ -17,21 +17,30 @@ namespace interfaces
         ConexionBDcs conexionBDcs = new ConexionBDcs();
         Documento docOrigen = null;
 
-        private void Dar_Alta_Load(object sender, EventArgs e)
+        public Dar_Alta()
         {
             InitializeComponent();
+        }
+
+        public Dar_Alta(Documento documento)
+        {
             tb_Carpeta.Text = documento.Carpeta;
             tb_Orden.Text = documento.OrdenCarpeta;
             dtp_Fecha.Value = documento.Fecha;
             tb_Contenido.Text = documento.Contenido;
-            tb_Tema1.Text=documento.Clave1;
-            tb_Tema2.Text= documento.Clave2;
+            tb_Tema1.Text = documento.Clave1;
+            tb_Tema2.Text = documento.Clave2;
             tb_Tema3.Text = documento.Clave3;
 
             btnMod.Visible = true;
             btn_DarAlta.Visible = false;
 
             dtp_Fecha.CustomFormat = " ";
+        }
+
+        private void Dar_Alta_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void tb_Carpeta_TextChanged(object sender, EventArgs e)
@@ -97,7 +106,6 @@ namespace interfaces
             tb_Carpeta.Text = dtp_Fecha.Value.Year.ToString().Substring(2);
         }
 
-<<<<<<< HEAD
         private void btnMod_Click(object sender, EventArgs e)
         {
             Documento docMod = new Documento(tb_Carpeta.Text, tb_Orden.Text, dtp_Fecha.Value, tb_Contenido.Text, tb_Tema1.Text, tb_Tema2.Text, tb_Tema3.Text);
@@ -107,7 +115,8 @@ namespace interfaces
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-=======
+        }
+
         private void dtp_Fecha_ValueChanged(object sender, EventArgs e)
         {
             dtp_Fecha.CustomFormat = "dd/MM/yyyy";
@@ -125,7 +134,6 @@ namespace interfaces
                 tb_Tema1.Enabled = false;
                 tb_Tema1.Text = string.Empty;
             }
->>>>>>> 5f81a13edf33f5a4c2199a5390388f4963fffa79
         }
     }
 }

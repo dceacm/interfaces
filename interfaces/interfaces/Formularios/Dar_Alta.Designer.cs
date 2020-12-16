@@ -93,7 +93,6 @@
             this.dtp_Fecha.Name = "dtp_Fecha";
             this.dtp_Fecha.Size = new System.Drawing.Size(201, 20);
             this.dtp_Fecha.TabIndex = 1;
-            this.dtp_Fecha.ValueChanged += new System.EventHandler(this.dtp_Fecha_ValueChanged);
             this.dtp_Fecha.Leave += new System.EventHandler(this.dtp_Fecha_Leave);
             // 
             // tb_Contenido
@@ -104,7 +103,6 @@
             this.tb_Contenido.Name = "tb_Contenido";
             this.tb_Contenido.Size = new System.Drawing.Size(201, 62);
             this.tb_Contenido.TabIndex = 2;
-            this.tb_Contenido.TextChanged += new System.EventHandler(this.tb_Contenido_TextChanged);
             // 
             // tb_Orden
             // 
@@ -245,9 +243,9 @@
             this.Controls.Add(this.btn_DarAlta);
             this.Name = "Dar_Alta";
             this.Text = "Alta";
+            this.Load += new System.EventHandler(this.Dar_Alta_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.Load += new System.EventHandler(this.Dar_Alta_Load);          
             this.ResumeLayout(false);
 
         }
