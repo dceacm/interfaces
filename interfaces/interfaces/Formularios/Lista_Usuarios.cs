@@ -103,7 +103,6 @@ namespace interfaces
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
             con.EliminarDocumento(doc);
-
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

@@ -66,10 +66,10 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Documento.cs" />
-    <Compile Include="Lista_Usuarios.cs">
+    <Compile Include="Formularios\Lista_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Lista_Usuarios.Designer.cs">
+    <Compile Include="Formularios\Lista_Usuarios.Designer.cs">
       <DependentUpon>Lista_Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\ListaDocumentos.cs" />
@@ -84,7 +84,7 @@
     <EmbeddedResource Include="Formularios\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lista_Usuarios.resx">
+    <EmbeddedResource Include="Formularios\Lista_Usuarios.resx">
       <DependentUpon>Lista_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

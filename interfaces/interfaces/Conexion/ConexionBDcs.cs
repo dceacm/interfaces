@@ -89,7 +89,7 @@ namespace interfaces.Conexion
         {
             string queryString = "DELETE FROM DOCUMENTO WHERE carpeta=@carpeta, ordenCarpeta=@ordenCarpeta, fecha=@fecha, " +
                 "contenido=@contenido, clave1=@clave1, clave2=@clave2, clave3=@clave3;)";
-
+            int count=CountDocumentos(documento.Carpeta);
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
@@ -113,7 +113,7 @@ namespace interfaces.Conexion
                 "contenido=@contenido, clave1=@clave1, clave2=@clave2, clave3=@clave3 WHERE carpeta=@carpetaOr, " +
                 "ordenCarpeta=@ordenCarpetaOr, fecha=@fechaOr, contenido=@contenidoOr, clave1=@clave1Or, " +
                 "clave2=@clave2Or, clave3=@clave3Or";
-
+            
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
@@ -136,6 +136,20 @@ namespace interfaces.Conexion
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
+            }
+        }
+
+        public int CountDocumentos(string carpeta)
+        {
+            string queryString = "SELECT COUNT(*) FROM DOCUMENTO WHERE carpeta=@carpeta";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(queryString, con))
+            {
+                cmd.Parameters.AddWithValue("@carpeta", carpeta);
+                con.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count;
             }
         }
 
@@ -162,6 +176,7 @@ namespace interfaces.Conexion
                         list.Add(d);
                     }
                 }
+                
             }
 
             return list;
