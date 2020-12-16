@@ -78,6 +78,7 @@
     <Compile Include="Lista_Usuarios.Designer.cs">
       <DependentUpon>Lista_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\ListaDocumentos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\Consultas.resx">
