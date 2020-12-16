@@ -20,6 +20,21 @@ namespace interfaces
             InitializeComponent();
         }
 
+        public Dar_Alta(Documento documento)
+        {
+            InitializeComponent();
+            tb_Carpeta.Text = documento.Carpeta;
+            tb_Orden.Text = documento.OrdenCarpeta;
+            dtp_Fecha.Value = documento.Fecha;
+            tb_Contenido.Text = documento.Contenido;
+            tb_Tema1.Text=documento.Clave1;
+            tb_Tema2.Text= documento.Clave2;
+            tb_Tema3.Text = documento.Clave3;
+            
+
+
+        }
+
       
 
         private void tb_Carpeta_TextChanged(object sender, EventArgs e)

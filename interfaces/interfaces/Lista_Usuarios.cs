@@ -19,6 +19,7 @@ namespace interfaces
 
         private Conexion.ConexionBDcs con = new Conexion.ConexionBDcs();
         private BindingSource bd;
+        
 
 
         public Lista_Usuarios(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
@@ -99,9 +100,19 @@ namespace interfaces
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+            Documento doc;
+            doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
+            con.EliminarDocumento(doc);
+
         }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Documento doc;
+            doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
+            new Dar_Alta(doc).Show();
+            //con.ModificarDocumento(doc);
+        }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -117,5 +128,7 @@ namespace interfaces
         {
             this.Close();
         }
+
+        
     }
 }
