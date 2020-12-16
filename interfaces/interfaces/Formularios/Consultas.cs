@@ -74,7 +74,7 @@ namespace interfaces
                 Lista_Usuarios l = new Lista_Usuarios(t1, t2, t3, c, tema1, tema2, tema3, contenido);
                 this.Visible = false;
                 l.ShowDialog();
-                this.Visible = true;
+                this.Close();
             }            
         }       
 

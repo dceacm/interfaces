@@ -1,5 +1,4 @@
-﻿using interfaces.Modelos;
-using interfaces.Properties;
+﻿using interfaces.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -99,5 +98,34 @@ namespace interfaces.Conexion
                 con.Close();
             }
         }
+
+        public List<Documento> GetDocumentos(string queryString) {
+            List<Documento> list = new List<Documento>();
+            
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(queryString, con))
+            {
+                con.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string carpeta = reader["Carpeta"].ToString();
+                        string ordenCarpeta = reader["OrdenCarpeta"].ToString();
+                        DateTime fecha = Convert.ToDateTime(reader["Fecha"]);
+                        string contenido = reader["Contenido"].ToString();
+                        string clave1 = reader["Clave1"].ToString();
+                        string clave2 = reader["Clave2"].ToString();
+                        string clave3 = reader["Clave3"].ToString();
+
+                        Documento d = new Documento(carpeta, ordenCarpeta, fecha, contenido, clave1, clave2, clave3);
+                        list.Add(d);
+                    }
+                }
+            }
+
+            return list;
+        }
+
     }
 }
