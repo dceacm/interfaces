@@ -103,15 +103,12 @@ namespace interfaces
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
             con.EliminarDocumento(doc);
-
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-            new Dar_Alta(doc).Show();
-            //con.ModificarDocumento(doc);
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
