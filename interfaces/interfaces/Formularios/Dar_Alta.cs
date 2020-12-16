@@ -15,9 +15,13 @@ namespace interfaces
     public partial class Dar_Alta : Form
     {
         ConexionBDcs conexionBDcs = new ConexionBDcs();
+        Documento docOrigen = null;
+
         public Dar_Alta()
         {
             InitializeComponent();
+            btnMod.Visible = false;
+            btn_DarAlta.Visible = true;
         }
 
         public Dar_Alta(Documento documento)
@@ -30,8 +34,9 @@ namespace interfaces
             tb_Tema1.Text=documento.Clave1;
             tb_Tema2.Text= documento.Clave2;
             tb_Tema3.Text = documento.Clave3;
-            
 
+            btnMod.Visible = true;
+            btn_DarAlta.Visible = false;
 
         }
 
@@ -96,6 +101,17 @@ namespace interfaces
         private void dtp_Fecha_Leave(object sender, EventArgs e)
         {
             tb_Carpeta.Text = dtp_Fecha.Value.Year.ToString().Substring(2);
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            Documento docMod = new Documento(tb_Carpeta.Text, tb_Orden.Text, dtp_Fecha.Value, tb_Contenido.Text, tb_Tema1.Text, tb_Tema2.Text, tb_Tema3.Text);
+            conexionBDcs.ModificarDocumento(docOrigen, docMod);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
