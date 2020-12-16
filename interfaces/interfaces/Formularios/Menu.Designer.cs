@@ -74,7 +74,7 @@
             this.Controls.Add(this.btn_Consulta);
             this.Controls.Add(this.btn_Alta);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Menú";
             this.ResumeLayout(false);
 
         }

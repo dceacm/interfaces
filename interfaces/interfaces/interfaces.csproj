@@ -59,17 +59,11 @@
     <Compile Include="Formularios\Dar_Alta.Designer.cs">
       <DependentUpon>Dar_Alta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Form1.cs">
+    <Compile Include="Formularios\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Formularios\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Documento.cs" />
     <Compile Include="Lista_Usuarios.cs">
@@ -86,8 +80,8 @@
     <EmbeddedResource Include="Formularios\Dar_Alta.resx">
       <DependentUpon>Dar_Alta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Lista_Usuarios.resx">
       <DependentUpon>Lista_Usuarios.cs</DependentUpon>
