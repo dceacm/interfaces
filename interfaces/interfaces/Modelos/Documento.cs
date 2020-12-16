@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace interfaces.Modelos
+namespace interfaces
 {
     public class Documento
     {
