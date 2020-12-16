@@ -113,6 +113,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Lista_Usuarios";
             this.Text = "Lista_Usuarios";
+            this.Load += new System.EventHandler(this.Lista_Usuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
