@@ -69,7 +69,8 @@
             // 
             // tb_Tema1
             // 
-            this.tb_Tema1.Location = new System.Drawing.Point(191, 244);
+            this.tb_Tema1.Enabled = false;
+            this.tb_Tema1.Location = new System.Drawing.Point(242, 260);
             this.tb_Tema1.Name = "tb_Tema1";
             this.tb_Tema1.Size = new System.Drawing.Size(201, 20);
             this.tb_Tema1.TabIndex = 3;
@@ -92,15 +93,18 @@
             this.dtp_Fecha.Name = "dtp_Fecha";
             this.dtp_Fecha.Size = new System.Drawing.Size(201, 20);
             this.dtp_Fecha.TabIndex = 1;
+            this.dtp_Fecha.ValueChanged += new System.EventHandler(this.dtp_Fecha_ValueChanged);
             this.dtp_Fecha.Leave += new System.EventHandler(this.dtp_Fecha_Leave);
             // 
             // tb_Contenido
             // 
-            this.tb_Contenido.Location = new System.Drawing.Point(191, 152);
+            this.tb_Contenido.Enabled = false;
+            this.tb_Contenido.Location = new System.Drawing.Point(242, 165);
             this.tb_Contenido.Multiline = true;
             this.tb_Contenido.Name = "tb_Contenido";
             this.tb_Contenido.Size = new System.Drawing.Size(201, 62);
             this.tb_Contenido.TabIndex = 2;
+            this.tb_Contenido.TextChanged += new System.EventHandler(this.tb_Contenido_TextChanged);
             // 
             // tb_Orden
             // 
@@ -243,6 +247,7 @@
             this.Text = "Alta";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.Dar_Alta_Load);          
             this.ResumeLayout(false);
 
         }

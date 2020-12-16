@@ -12,35 +12,75 @@ namespace interfaces.Conexion
     {
         public string connectionString = Settings.Default.connectionString;
 
-        public void AnadirDocumento(Documento documento)
+        public void AnadirCarpeta(Documento documento)
         {
-            string queryString = "INSERT Documento VALUES(@carpeta, @ordenCarpeta, @fecha, @contenido, @clave1, @clave2, @clave3 );";
-
+            string queryString = "IF NOT EXISTS (SELECT * FROM Carpeta WHERE CarpetaId = @carpeta) BEGIN INSERT Carpeta(CarpetaId) VALUES(@carpeta) END;";
+         
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
-                cmd.Parameters.AddWithValue("@carpeta", documento.Carpeta);
-                cmd.Parameters.AddWithValue("@ordenCarpeta", documento.OrdenCarpeta);
-                cmd.Parameters.AddWithValue("@fecha", documento.Fecha);
-                cmd.Parameters.AddWithValue("@contenido", documento.Contenido);
-                cmd.Parameters.AddWithValue("@clave1", documento.Clave1);
-                cmd.Parameters.AddWithValue("@clave2", documento.Clave2);
-                cmd.Parameters.AddWithValue("@clave3", documento.Clave3);
+              
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(documento.Carpeta));
+              
 
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
         }
-        public string GetLastID()
+
+        public bool AnadirDocumento(Documento documento)
         {
-            string id = string.Empty;
-            string queryString = "SELECT ISNULL((SELECT TOP 1 OrdenCarpeta FROM Documento ORDER BY OrdenCarpeta DESC),0);";
+            bool anadir = false;
+            AnadirCarpeta(documento);
+            string queryString = string.Empty;
+            if (string.IsNullOrEmpty(documento.Clave2))
+            {
+                queryString = "INSERT Documento VALUES(@carpeta,@ordenCarpeta, @fecha, @contenido, @clave1, null, null);";
+            }
+            else if (string.IsNullOrEmpty(documento.Clave3))
+            {
+                queryString = "INSERT Documento VALUES(@carpeta,@ordenCarpeta, @fecha, @contenido, @clave1, @clave2, null);";
+            }
+            else
+            {
+                queryString = "INSERT Documento VALUES(@carpeta,@ordenCarpeta, @fecha, @contenido, @clave1, @clave2, @clave3 );";
+            }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(documento.Carpeta));
+                cmd.Parameters.AddWithValue("@ordenCarpeta", int.Parse(documento.OrdenCarpeta));
+                cmd.Parameters.AddWithValue("@fecha", documento.Fecha);
+                cmd.Parameters.AddWithValue("@contenido", documento.Contenido);
+                cmd.Parameters.AddWithValue("@clave1", documento.Clave1);
+
+                if (!string.IsNullOrEmpty(documento.Clave2))
+                {
+                    cmd.Parameters.AddWithValue("@clave2", documento.Clave2);
+                }
+
+                if (!string.IsNullOrEmpty(documento.Clave3))
+                {
+                    cmd.Parameters.AddWithValue("@clave3", documento.Clave3);
+                }
 
                 con.Open();
-                id = (int.Parse(cmd.ExecuteScalar().ToString())+1).ToString();              
+                cmd.ExecuteNonQuery();
+                anadir = true;
+            }
+            return anadir;
+        }
+        public string GetLastID(String text)
+        {
+            string id = string.Empty;
+            string queryString = "SELECT ISNULL((SELECT TOP 1 OrdenCarpeta FROM Documento Where carpeta=@carpeta ORDER BY OrdenCarpeta DESC),0);";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(queryString, con))
+            {
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(text));
+                con.Open();
+                id = (int.Parse(cmd.ExecuteScalar().ToString())+1).ToString().PadLeft(3,'0');              
             }
             return id;
         }
@@ -53,8 +93,8 @@ namespace interfaces.Conexion
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
-                cmd.Parameters.AddWithValue("@carpeta", documento.Carpeta);
-                cmd.Parameters.AddWithValue("@ordenCarpeta", documento.OrdenCarpeta);
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(documento.Carpeta));
+                cmd.Parameters.AddWithValue("@ordenCarpeta", int.Parse(documento.OrdenCarpeta));
                 cmd.Parameters.AddWithValue("@fecha", documento.Fecha);
                 cmd.Parameters.AddWithValue("@contenido", documento.Contenido);
                 cmd.Parameters.AddWithValue("@clave1", documento.Clave1);
@@ -77,16 +117,16 @@ namespace interfaces.Conexion
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
-                cmd.Parameters.AddWithValue("@carpeta", documentoOrigen.Carpeta);
-                cmd.Parameters.AddWithValue("@ordenCarpeta", documentoOrigen.OrdenCarpeta);
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(documento.Carpeta));
+                cmd.Parameters.AddWithValue("@ordenCarpeta", int.Parse(documento.OrdenCarpeta));
                 cmd.Parameters.AddWithValue("@fecha", documentoOrigen.Fecha);
                 cmd.Parameters.AddWithValue("@contenido", documentoOrigen.Contenido);
                 cmd.Parameters.AddWithValue("@clave1", documentoOrigen.Clave1);
                 cmd.Parameters.AddWithValue("@clave2", documentoOrigen.Clave2);
                 cmd.Parameters.AddWithValue("@clave3", documentoOrigen.Clave3);
 
-                cmd.Parameters.AddWithValue("@carpetaOr", documento.Carpeta);
-                cmd.Parameters.AddWithValue("@ordenCarpetaOr", documento.OrdenCarpeta);
+                cmd.Parameters.AddWithValue("@carpetaOr", int.Parse(documento.Carpeta));
+                cmd.Parameters.AddWithValue("@ordenCarpetaOr", int.Parse(documento.OrdenCarpeta));
                 cmd.Parameters.AddWithValue("@fechaOr", documento.Fecha);
                 cmd.Parameters.AddWithValue("@contenidoOr", documento.Contenido);
                 cmd.Parameters.AddWithValue("@clave1Or", documento.Clave1);

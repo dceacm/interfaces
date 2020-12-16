@@ -110,8 +110,6 @@ namespace interfaces
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-            new Dar_Alta(doc).Show();
-            //con.ModificarDocumento(doc);
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
