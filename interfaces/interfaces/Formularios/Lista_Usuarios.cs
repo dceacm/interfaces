@@ -109,6 +109,8 @@ namespace interfaces
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
+            Console.WriteLine(doc.Carpeta);
+            new Dar_Alta(doc).Show();
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

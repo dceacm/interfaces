@@ -119,7 +119,6 @@
             this.tb_Carpeta.ReadOnly = true;
             this.tb_Carpeta.Size = new System.Drawing.Size(201, 20);
             this.tb_Carpeta.TabIndex = 12;
-            this.tb_Carpeta.TextChanged += new System.EventHandler(this.tb_Carpeta_TextChanged);
             // 
             // label1
             // 

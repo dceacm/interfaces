@@ -20,10 +20,13 @@ namespace interfaces
         public Dar_Alta()
         {
             InitializeComponent();
+            btnMod.Visible = false;
+            btn_DarAlta.Visible = true;
         }
 
         public Dar_Alta(Documento documento)
         {
+            InitializeComponent();
             tb_Carpeta.Text = documento.Carpeta;
             tb_Orden.Text = documento.OrdenCarpeta;
             dtp_Fecha.Value = documento.Fecha;
@@ -43,10 +46,7 @@ namespace interfaces
             
         }
 
-        private void tb_Carpeta_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void btn_DarAlta_Click(object sender, EventArgs e)
         {
