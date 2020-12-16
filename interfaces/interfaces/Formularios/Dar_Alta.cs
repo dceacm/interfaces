@@ -21,11 +21,14 @@ namespace interfaces
             InitializeComponent();
         }
 
-      
+        private void Dar_Alta_Load(object sender, EventArgs e)
+        {
+            dtp_Fecha.CustomFormat = " ";
+        }
 
         private void tb_Carpeta_TextChanged(object sender, EventArgs e)
         {
-            //tb_Orden.Text = conexionBDcs.GetLastID();
+            
         }
 
         private void btn_DarAlta_Click(object sender, EventArgs e)
@@ -40,16 +43,18 @@ namespace interfaces
             }
             else
             {
-                if (string.IsNullOrEmpty(tb_Tema2.Text))
-                {
-                    tb_Tema2.Text = null;
-                }
-                if (string.IsNullOrEmpty(tb_Tema3.Text))
-                {
-                    tb_Tema3.Text = null;
-                }
+                tb_Orden.Text = conexionBDcs.GetLastID(tb_Carpeta.Text);
                 Documento doc = new Documento(tb_Carpeta.Text,tb_Orden.Text,DateTime.Parse(dtp_Fecha.Text),tb_Contenido.Text,tb_Tema1.Text,tb_Tema2.Text,tb_Tema3.Text);
-                conexionBDcs.AnadirDocumento(doc);
+                if (conexionBDcs.AnadirDocumento(doc))
+                {
+                    tb_Tema1.Text = string.Empty;
+                    tb_Tema2.Text = string.Empty;
+                    tb_Tema3.Text = string.Empty;
+                    tb_Contenido.Text = string.Empty;
+                    dtp_Fecha.CustomFormat = " ";
+                    tb_Orden.Text = string.Empty;
+                    tb_Carpeta.Text = string.Empty;
+                }
             }
         }
 
@@ -82,6 +87,25 @@ namespace interfaces
         private void dtp_Fecha_Leave(object sender, EventArgs e)
         {
             tb_Carpeta.Text = dtp_Fecha.Value.Year.ToString().Substring(2);
+        }
+
+        private void dtp_Fecha_ValueChanged(object sender, EventArgs e)
+        {
+            dtp_Fecha.CustomFormat = "dd/MM/yyyy";
+            tb_Contenido.Enabled = true;
+        }
+
+        private void tb_Contenido_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tb_Contenido.Text))
+            {
+                tb_Tema1.Enabled = true;
+            }
+            else
+            {
+                tb_Tema1.Enabled = false;
+                tb_Tema1.Text = string.Empty;
+            }
         }
     }
 }
