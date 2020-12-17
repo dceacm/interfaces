@@ -36,9 +36,9 @@
             // btn_Consulta
             // 
             this.btn_Consulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_Consulta.Location = new System.Drawing.Point(92, 110);
+            this.btn_Consulta.Location = new System.Drawing.Point(40, 94);
             this.btn_Consulta.Name = "btn_Consulta";
-            this.btn_Consulta.Size = new System.Drawing.Size(83, 30);
+            this.btn_Consulta.Size = new System.Drawing.Size(139, 43);
             this.btn_Consulta.TabIndex = 5;
             this.btn_Consulta.Text = "Consultar";
             this.btn_Consulta.UseVisualStyleBackColor = true;
@@ -47,9 +47,9 @@
             // btn_Alta
             // 
             this.btn_Alta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_Alta.Location = new System.Drawing.Point(92, 74);
+            this.btn_Alta.Location = new System.Drawing.Point(40, 32);
             this.btn_Alta.Name = "btn_Alta";
-            this.btn_Alta.Size = new System.Drawing.Size(83, 30);
+            this.btn_Alta.Size = new System.Drawing.Size(139, 43);
             this.btn_Alta.TabIndex = 3;
             this.btn_Alta.Text = "Alta";
             this.btn_Alta.UseVisualStyleBackColor = true;
@@ -58,23 +58,23 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnSalir.Location = new System.Drawing.Point(92, 170);
+            this.btnSalir.Location = new System.Drawing.Point(40, 205);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(83, 30);
+            this.btnSalir.Size = new System.Drawing.Size(139, 43);
             this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // Form1
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 304);
+            this.ClientSize = new System.Drawing.Size(222, 275);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btn_Consulta);
             this.Controls.Add(this.btn_Alta);
-            this.Name = "Form1";
+            this.Name = "Menu";
             this.Text = "Menú";
             this.ResumeLayout(false);
 

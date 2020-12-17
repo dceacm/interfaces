@@ -20,7 +20,7 @@ namespace interfaces
         public Dar_Alta()
         {
             InitializeComponent();
-            btn_Mod.Visible = false;
+            btn_Aceptar.Visible = false;
             btn_DarAlta.Visible = true;
         }
 
@@ -35,7 +35,7 @@ namespace interfaces
             tb_Tema2.Text = documento.Clave2;
             tb_Tema3.Text = documento.Clave3;
 
-            btn_Mod.Visible = true;
+            btn_Aceptar.Visible = true;
             btn_DarAlta.Visible = false;
 
             dtp_Fecha.CustomFormat = " ";
@@ -47,8 +47,8 @@ namespace interfaces
             {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Exclamation;
-                string cuerpo = "Falta información de busqueda.";
-                string cabecera = "Error en la busqueda";
+                string cuerpo = "Falta información.";
+                string cabecera = "ERROR";
                 MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
             else
@@ -66,7 +66,18 @@ namespace interfaces
                     tb_Orden.Text = string.Empty;
                     tb_Carpeta.Text = string.Empty;
                 }
+
+                MessageBoxButtons botons = MessageBoxButtons.OK;
+                string cuerpo ="Se ha dado de alta correctamente.";
+                string cabecera = "CORRECTO";
+                MessageBox.Show(cuerpo, cabecera, botons);
             }
+        }
+
+        private void btn_Aceptar_Click(object sender, EventArgs e)
+        {
+            Documento docMod = new Documento(tb_Carpeta.Text, tb_Orden.Text, dtp_Fecha.Value, tb_Contenido.Text, tb_Tema1.Text, tb_Tema2.Text, tb_Tema3.Text);
+            conexionBDcs.ModificarDocumento(docOrigen, docMod);
         }
 
         private void tb_Tema1_TextChanged(object sender, EventArgs e)

@@ -43,7 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_Mod = new System.Windows.Forms.Button();
+            this.btn_Aceptar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gb_Alta = new System.Windows.Forms.GroupBox();
             this.gb_Alta.SuspendLayout();
@@ -51,11 +51,12 @@
             // 
             // btn_DarAlta
             // 
-            this.btn_DarAlta.Location = new System.Drawing.Point(295, 421);
+            this.btn_DarAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_DarAlta.Location = new System.Drawing.Point(424, 421);
             this.btn_DarAlta.Name = "btn_DarAlta";
             this.btn_DarAlta.Size = new System.Drawing.Size(149, 42);
             this.btn_DarAlta.TabIndex = 6;
-            this.btn_DarAlta.Text = "Dar Alta";
+            this.btn_DarAlta.Text = "Alta";
             this.btn_DarAlta.UseVisualStyleBackColor = true;
             this.btn_DarAlta.Click += new System.EventHandler(this.btn_DarAlta_Click);
             // 
@@ -64,7 +65,7 @@
             this.tb_Tema3.Enabled = false;
             this.tb_Tema3.Location = new System.Drawing.Point(191, 344);
             this.tb_Tema3.Name = "tb_Tema3";
-            this.tb_Tema3.Size = new System.Drawing.Size(201, 20);
+            this.tb_Tema3.Size = new System.Drawing.Size(346, 20);
             this.tb_Tema3.TabIndex = 5;
             // 
             // tb_Tema1
@@ -72,7 +73,7 @@
             this.tb_Tema1.Enabled = false;
             this.tb_Tema1.Location = new System.Drawing.Point(191, 244);
             this.tb_Tema1.Name = "tb_Tema1";
-            this.tb_Tema1.Size = new System.Drawing.Size(201, 20);
+            this.tb_Tema1.Size = new System.Drawing.Size(346, 20);
             this.tb_Tema1.TabIndex = 3;
             this.tb_Tema1.TextChanged += new System.EventHandler(this.tb_Tema1_TextChanged);
             // 
@@ -81,7 +82,7 @@
             this.tb_Tema2.Enabled = false;
             this.tb_Tema2.Location = new System.Drawing.Point(191, 294);
             this.tb_Tema2.Name = "tb_Tema2";
-            this.tb_Tema2.Size = new System.Drawing.Size(201, 20);
+            this.tb_Tema2.Size = new System.Drawing.Size(346, 20);
             this.tb_Tema2.TabIndex = 4;
             this.tb_Tema2.TextChanged += new System.EventHandler(this.tb_Tema2_TextChanged);
             // 
@@ -91,7 +92,7 @@
             this.dtp_Fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Fecha.Location = new System.Drawing.Point(191, 115);
             this.dtp_Fecha.Name = "dtp_Fecha";
-            this.dtp_Fecha.Size = new System.Drawing.Size(201, 20);
+            this.dtp_Fecha.Size = new System.Drawing.Size(346, 20);
             this.dtp_Fecha.TabIndex = 1;
             this.dtp_Fecha.ValueChanged += new System.EventHandler(this.dtp_Fecha_ValueChanged);
             this.dtp_Fecha.Leave += new System.EventHandler(this.dtp_Fecha_Leave);
@@ -102,7 +103,7 @@
             this.tb_Contenido.Location = new System.Drawing.Point(191, 163);
             this.tb_Contenido.Multiline = true;
             this.tb_Contenido.Name = "tb_Contenido";
-            this.tb_Contenido.Size = new System.Drawing.Size(201, 62);
+            this.tb_Contenido.Size = new System.Drawing.Size(346, 62);
             this.tb_Contenido.TabIndex = 2;
             this.tb_Contenido.TextChanged += new System.EventHandler(this.tb_Contenido_TextChanged);
             // 
@@ -111,7 +112,7 @@
             this.tb_Orden.Location = new System.Drawing.Point(191, 71);
             this.tb_Orden.Name = "tb_Orden";
             this.tb_Orden.ReadOnly = true;
-            this.tb_Orden.Size = new System.Drawing.Size(201, 20);
+            this.tb_Orden.Size = new System.Drawing.Size(346, 20);
             this.tb_Orden.TabIndex = 13;
             // 
             // tb_Carpeta
@@ -119,7 +120,7 @@
             this.tb_Carpeta.Location = new System.Drawing.Point(191, 29);
             this.tb_Carpeta.Name = "tb_Carpeta";
             this.tb_Carpeta.ReadOnly = true;
-            this.tb_Carpeta.Size = new System.Drawing.Size(201, 20);
+            this.tb_Carpeta.Size = new System.Drawing.Size(346, 20);
             this.tb_Carpeta.TabIndex = 12;
             // 
             // label1
@@ -192,23 +193,25 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "Clave 3";
             // 
-            // btn_Mod
+            // btn_Aceptar
             // 
-            this.btn_Mod.Location = new System.Drawing.Point(295, 421);
-            this.btn_Mod.Name = "btn_Mod";
-            this.btn_Mod.Size = new System.Drawing.Size(149, 42);
-            this.btn_Mod.TabIndex = 26;
-            this.btn_Mod.Text = "Modificar";
-            this.btn_Mod.UseVisualStyleBackColor = true;
-            this.btn_Mod.Click += new System.EventHandler(this.btnMod_Click);
+            this.btn_Aceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_Aceptar.Location = new System.Drawing.Point(424, 421);
+            this.btn_Aceptar.Name = "btn_Aceptar";
+            this.btn_Aceptar.Size = new System.Drawing.Size(149, 42);
+            this.btn_Aceptar.TabIndex = 26;
+            this.btn_Aceptar.Text = "Aceptar";
+            this.btn_Aceptar.UseVisualStyleBackColor = true;
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(41, 421);
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnSalir.Location = new System.Drawing.Point(12, 421);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(149, 42);
             this.btnSalir.TabIndex = 27;
-            this.btnSalir.Text = "Cancelar";
+            this.btnSalir.Text = "Volver";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -230,7 +233,7 @@
             this.gb_Alta.Controls.Add(this.label2);
             this.gb_Alta.Location = new System.Drawing.Point(12, 12);
             this.gb_Alta.Name = "gb_Alta";
-            this.gb_Alta.Size = new System.Drawing.Size(457, 387);
+            this.gb_Alta.Size = new System.Drawing.Size(561, 387);
             this.gb_Alta.TabIndex = 28;
             this.gb_Alta.TabStop = false;
             // 
@@ -238,10 +241,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 475);
+            this.ClientSize = new System.Drawing.Size(585, 475);
             this.Controls.Add(this.gb_Alta);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btn_Mod);
+            this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_DarAlta);
             this.Name = "Dar_Alta";
             this.Text = "Alta";
@@ -268,7 +271,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btn_Mod;
+        private System.Windows.Forms.Button btn_Aceptar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gb_Alta;
     }

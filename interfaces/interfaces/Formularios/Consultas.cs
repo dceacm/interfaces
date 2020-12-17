@@ -15,10 +15,15 @@ namespace interfaces
         public Consultas()
         {
             InitializeComponent();
-            cbTema1.Checked = true;
-            cbTema2.Checked = true;
-            cbTema3.Checked = true;
-            cbContenido.Checked = true;
+            cbTema1.Checked = false;
+            cbTema2.Checked = false;
+            cbTema3.Checked = false;
+            cbContenido.Checked = false;
+
+            txtTema1.Enabled = false;
+            txtTema2.Enabled = false;
+            txtTema3.Enabled = false;
+            txtContenido.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -87,11 +92,11 @@ namespace interfaces
         {
             if (cbTema1.Checked)
             {
-                txtTema1.Visible = true;
+                txtTema1.Enabled = true;
             }
             else
             {
-                txtTema1.Visible = false;
+                txtTema1.Enabled = false;
             }
         }
 
@@ -99,11 +104,11 @@ namespace interfaces
         {
             if (cbTema2.Checked)
             {
-                txtTema2.Visible = true;
+                txtTema2.Enabled = true;
             }
             else
             {
-                txtTema2.Visible = false;
+                txtTema2.Enabled = false;
             }
         }
 
@@ -111,11 +116,11 @@ namespace interfaces
         {
             if (cbTema3.Checked)
             {
-                txtTema3.Visible = true;
+                txtTema3.Enabled = true;
             }
             else
             {
-                txtTema3.Visible = false;
+                txtTema3.Enabled = false;
             }
         }
 
@@ -123,17 +128,17 @@ namespace interfaces
         {
             if (cbContenido.Checked)
             {
-                txtContenido.Visible = true;
-                btnVolver.Location = new Point(171, 316);
-                groupBox1.Size = new Size(477, 300);
-                this.Size = new Size(521, 414);
+                txtContenido.Enabled = true;
+                //btnVolver.Location = new Point(171, 316);
+                //gb_Consulta.Size = new Size(477, 300);
+                //this.Size = new Size(521, 414);
             }
             else
             {
-                txtContenido.Visible = false;
-                btnVolver.Location = new Point(171, 242);
-                groupBox1.Size = new Size(477, 226);
-                this.Size = new Size(521, 340);
+                txtContenido.Enabled = false;
+                //btnVolver.Location = new Point(171, 242);
+                //gb_Consulta.Size = new Size(477, 226);
+                //this.Size = new Size(521, 340);
             }
         }
     }
