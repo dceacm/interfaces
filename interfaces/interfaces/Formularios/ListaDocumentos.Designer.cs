@@ -1,6 +1,6 @@
 ﻿namespace interfaces
 {
-    partial class Lista_Usuarios
+    partial class ListaDocumentos
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnEliminar.Location = new System.Drawing.Point(450, 256);
+            this.btnEliminar.Location = new System.Drawing.Point(596, 351);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(139, 43);
             this.btnEliminar.TabIndex = 1;
@@ -52,7 +52,7 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnModificar.Location = new System.Drawing.Point(450, 90);
+            this.btnModificar.Location = new System.Drawing.Point(596, 62);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(139, 43);
             this.btnModificar.TabIndex = 2;
@@ -65,7 +65,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 62);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(438, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(584, 332);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
@@ -78,7 +78,7 @@
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(616, 327);
+            this.groupBox1.Size = new System.Drawing.Size(741, 411);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
@@ -87,7 +87,7 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(438, 27);
             this.label1.TabIndex = 5;
@@ -96,7 +96,7 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnSalir.Location = new System.Drawing.Point(259, 348);
+            this.btnSalir.Location = new System.Drawing.Point(12, 429);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(139, 43);
             this.btnSalir.TabIndex = 6;
@@ -104,15 +104,15 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // Lista_Usuarios
+            // ListaDocumentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 403);
+            this.ClientSize = new System.Drawing.Size(777, 484);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Lista_Usuarios";
-            this.Text = "Lista_Usuarios";
+            this.Name = "ListaDocumentos";
+            this.Text = "Listado Documentos";
             this.Load += new System.EventHandler(this.Lista_Usuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

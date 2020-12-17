@@ -11,26 +11,28 @@ using System.Windows.Forms;
 
 namespace interfaces
 {
-    public partial class Lista_Usuarios : Form
+    public partial class ListaDocumentos : Form
     {
         private int aux;
         private string query = "SELECT * FROM Documento ";
-        private string conexion;
 
         private Conexion.ConexionBDcs con = new Conexion.ConexionBDcs();
         private BindingSource bd;
         
-
-
-        public Lista_Usuarios(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
+        public ListaDocumentos(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
         {
             InitializeComponent();
+            Documentos(t1, t2, t3, c, tema1, tema2, tema3, contenido);
+        }
+
+        private void Documentos(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
+        {
             bd = new BindingSource();
             bd.DataSource = typeof(Documento);
             dataGridView1.DataSource = bd;
             dataGridView1.AutoGenerateColumns = true;
 
-            if(!t1 && !t2 && !t3 && !c)
+            if (!t1 && !t2 && !t3 && !c)
             {
                 List<Documento> l = con.GetDocumentos(query);
                 foreach (Documento per in l)
@@ -94,8 +96,6 @@ namespace interfaces
                     bd.Add(per);
                 }
             }
-            
-            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

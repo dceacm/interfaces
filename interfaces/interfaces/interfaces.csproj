@@ -53,11 +53,11 @@
     <Compile Include="Formularios\Consultas.Designer.cs">
       <DependentUpon>Consultas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Dar_Alta.cs">
+    <Compile Include="Formularios\DarAlta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Dar_Alta.Designer.cs">
-      <DependentUpon>Dar_Alta.cs</DependentUpon>
+    <Compile Include="Formularios\DarAlta.Designer.cs">
+      <DependentUpon>DarAlta.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Menu.cs">
       <SubType>Form</SubType>
@@ -66,11 +66,11 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Documento.cs" />
-    <Compile Include="Formularios\Lista_Usuarios.cs">
+    <Compile Include="Formularios\ListaDocumentos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Lista_Usuarios.Designer.cs">
-      <DependentUpon>Lista_Usuarios.cs</DependentUpon>
+    <Compile Include="Formularios\ListaDocumentos.Designer.cs">
+      <DependentUpon>ListaDocumentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\ListaDocumentos.cs" />
     <Compile Include="Program.cs" />
@@ -78,14 +78,14 @@
     <EmbeddedResource Include="Formularios\Consultas.resx">
       <DependentUpon>Consultas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Dar_Alta.resx">
-      <DependentUpon>Dar_Alta.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\DarAlta.resx">
+      <DependentUpon>DarAlta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Lista_Usuarios.resx">
-      <DependentUpon>Lista_Usuarios.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\ListaDocumentos.resx">
+      <DependentUpon>ListaDocumentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

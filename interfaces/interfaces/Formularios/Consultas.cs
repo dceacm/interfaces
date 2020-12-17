@@ -71,7 +71,7 @@ namespace interfaces
                     contenido = txtContenido.Text;
                 }
 
-                Lista_Usuarios l = new Lista_Usuarios(t1, t2, t3, c, tema1, tema2, tema3, contenido);
+                ListaDocumentos l = new ListaDocumentos(t1, t2, t3, c, tema1, tema2, tema3, contenido);
                 this.Visible = false;
                 l.ShowDialog();
                 this.Close();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace interfaces
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
         }
@@ -31,6 +31,11 @@ namespace interfaces
             Consultas c = new Consultas();
             c.ShowDialog();
             this.Visible = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

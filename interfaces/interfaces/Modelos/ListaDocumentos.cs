@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace interfaces.Modelos
 {
-    class ListaDocumentos
+    public class ListaDocumentos
     {
         private List<Documento> lista_documentos = new List<Documento>();
 
         public List<Documento> Lista_documentos { get => lista_documentos; set => lista_documentos = value; }
-
-
     }
 }

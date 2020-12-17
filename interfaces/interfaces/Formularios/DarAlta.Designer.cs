@@ -43,10 +43,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnMod = new System.Windows.Forms.Button();
+            this.btn_Mod = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.gb_Alta = new System.Windows.Forms.GroupBox();
+            this.gb_Alta.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_DarAlta
@@ -70,7 +70,7 @@
             // tb_Tema1
             // 
             this.tb_Tema1.Enabled = false;
-            this.tb_Tema1.Location = new System.Drawing.Point(242, 260);
+            this.tb_Tema1.Location = new System.Drawing.Point(191, 244);
             this.tb_Tema1.Name = "tb_Tema1";
             this.tb_Tema1.Size = new System.Drawing.Size(201, 20);
             this.tb_Tema1.TabIndex = 3;
@@ -93,16 +93,18 @@
             this.dtp_Fecha.Name = "dtp_Fecha";
             this.dtp_Fecha.Size = new System.Drawing.Size(201, 20);
             this.dtp_Fecha.TabIndex = 1;
+            this.dtp_Fecha.ValueChanged += new System.EventHandler(this.dtp_Fecha_ValueChanged);
             this.dtp_Fecha.Leave += new System.EventHandler(this.dtp_Fecha_Leave);
             // 
             // tb_Contenido
             // 
             this.tb_Contenido.Enabled = false;
-            this.tb_Contenido.Location = new System.Drawing.Point(242, 165);
+            this.tb_Contenido.Location = new System.Drawing.Point(191, 163);
             this.tb_Contenido.Multiline = true;
             this.tb_Contenido.Name = "tb_Contenido";
             this.tb_Contenido.Size = new System.Drawing.Size(201, 62);
             this.tb_Contenido.TabIndex = 2;
+            this.tb_Contenido.TextChanged += new System.EventHandler(this.tb_Contenido_TextChanged);
             // 
             // tb_Orden
             // 
@@ -190,15 +192,15 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "Clave 3";
             // 
-            // btnMod
+            // btn_Mod
             // 
-            this.btnMod.Location = new System.Drawing.Point(295, 421);
-            this.btnMod.Name = "btnMod";
-            this.btnMod.Size = new System.Drawing.Size(149, 42);
-            this.btnMod.TabIndex = 26;
-            this.btnMod.Text = "Modificar";
-            this.btnMod.UseVisualStyleBackColor = true;
-            this.btnMod.Click += new System.EventHandler(this.btnMod_Click);
+            this.btn_Mod.Location = new System.Drawing.Point(295, 421);
+            this.btn_Mod.Name = "btn_Mod";
+            this.btn_Mod.Size = new System.Drawing.Size(149, 42);
+            this.btn_Mod.TabIndex = 26;
+            this.btn_Mod.Text = "Modificar";
+            this.btn_Mod.UseVisualStyleBackColor = true;
+            this.btn_Mod.Click += new System.EventHandler(this.btnMod_Click);
             // 
             // btnSalir
             // 
@@ -208,43 +210,43 @@
             this.btnSalir.TabIndex = 27;
             this.btnSalir.Text = "Cancelar";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // groupBox1
+            // gb_Alta
             // 
-            this.groupBox1.Controls.Add(this.tb_Carpeta);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tb_Orden);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.tb_Contenido);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.dtp_Fecha);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.tb_Tema2);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.tb_Tema1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tb_Tema3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(457, 387);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
+            this.gb_Alta.Controls.Add(this.tb_Carpeta);
+            this.gb_Alta.Controls.Add(this.label1);
+            this.gb_Alta.Controls.Add(this.tb_Orden);
+            this.gb_Alta.Controls.Add(this.label7);
+            this.gb_Alta.Controls.Add(this.tb_Contenido);
+            this.gb_Alta.Controls.Add(this.label6);
+            this.gb_Alta.Controls.Add(this.dtp_Fecha);
+            this.gb_Alta.Controls.Add(this.label5);
+            this.gb_Alta.Controls.Add(this.tb_Tema2);
+            this.gb_Alta.Controls.Add(this.label4);
+            this.gb_Alta.Controls.Add(this.tb_Tema1);
+            this.gb_Alta.Controls.Add(this.label3);
+            this.gb_Alta.Controls.Add(this.tb_Tema3);
+            this.gb_Alta.Controls.Add(this.label2);
+            this.gb_Alta.Location = new System.Drawing.Point(12, 12);
+            this.gb_Alta.Name = "gb_Alta";
+            this.gb_Alta.Size = new System.Drawing.Size(457, 387);
+            this.gb_Alta.TabIndex = 28;
+            this.gb_Alta.TabStop = false;
             // 
             // Dar_Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 475);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gb_Alta);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnMod);
+            this.Controls.Add(this.btn_Mod);
             this.Controls.Add(this.btn_DarAlta);
             this.Name = "Dar_Alta";
             this.Text = "Alta";
-            this.Load += new System.EventHandler(this.Dar_Alta_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gb_Alta.ResumeLayout(false);
+            this.gb_Alta.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -266,8 +268,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnMod;
+        private System.Windows.Forms.Button btn_Mod;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gb_Alta;
     }
 }

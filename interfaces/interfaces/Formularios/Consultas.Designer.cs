@@ -65,7 +65,7 @@
             this.groupBox1.Controls.Add(this.txtTema1);
             this.groupBox1.Location = new System.Drawing.Point(12, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(477, 226);
+            this.groupBox1.Size = new System.Drawing.Size(496, 345);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
@@ -75,7 +75,8 @@
             this.txtContenido.Location = new System.Drawing.Point(115, 183);
             this.txtContenido.Multiline = true;
             this.txtContenido.Name = "txtContenido";
-            this.txtContenido.Size = new System.Drawing.Size(341, 92);
+            this.txtContenido.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtContenido.Size = new System.Drawing.Size(341, 135);
             this.txtContenido.TabIndex = 14;
             // 
             // txtTema3
@@ -166,7 +167,7 @@
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnVolver.Location = new System.Drawing.Point(172, 242);
+            this.btnVolver.Location = new System.Drawing.Point(175, 364);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(173, 47);
             this.btnVolver.TabIndex = 7;
@@ -178,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 301);
+            this.ClientSize = new System.Drawing.Size(529, 422);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.groupBox1);
             this.Name = "Consultas";

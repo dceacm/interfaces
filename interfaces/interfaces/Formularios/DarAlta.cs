@@ -20,7 +20,7 @@ namespace interfaces
         public Dar_Alta()
         {
             InitializeComponent();
-            btnMod.Visible = false;
+            btn_Mod.Visible = false;
             btn_DarAlta.Visible = true;
         }
 
@@ -35,19 +35,12 @@ namespace interfaces
             tb_Tema2.Text = documento.Clave2;
             tb_Tema3.Text = documento.Clave3;
 
-            btnMod.Visible = true;
+            btn_Mod.Visible = true;
             btn_DarAlta.Visible = false;
 
             dtp_Fecha.CustomFormat = " ";
         }
-
-        private void Dar_Alta_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        
-
+      
         private void btn_DarAlta_Click(object sender, EventArgs e)
         {
             if (dtp_Fecha.Text == " " || string.IsNullOrEmpty(tb_Contenido.Text)||string.IsNullOrEmpty(tb_Tema1.Text))
@@ -62,6 +55,7 @@ namespace interfaces
             {
                 tb_Orden.Text = conexionBDcs.GetLastID(tb_Carpeta.Text);
                 Documento doc = new Documento(tb_Carpeta.Text,tb_Orden.Text,DateTime.Parse(dtp_Fecha.Text),tb_Contenido.Text,tb_Tema1.Text,tb_Tema2.Text,tb_Tema3.Text);
+
                 if (conexionBDcs.AnadirDocumento(doc))
                 {
                     tb_Tema1.Text = string.Empty;
