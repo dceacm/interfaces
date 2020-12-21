@@ -102,7 +102,22 @@ namespace interfaces
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-            con.EliminarDocumento(doc);
+            if (con.EliminarDocumento(doc)) {
+                MessageBoxButtons botons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Exclamation;
+                string cuerpo = "Se ha eliminado el documento correctamente.";
+                string cabecera = "ERROR";
+                MessageBox.Show(cuerpo, cabecera, botons, icon);
+            }
+            else
+            {
+                MessageBoxButtons botons = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Exclamation;
+                string cuerpo = "No se ha eliminado correctamente.";
+                string cabecera = "ERROR";
+                MessageBox.Show(cuerpo, cabecera, botons, icon);
+            }
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

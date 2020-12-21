@@ -86,8 +86,9 @@ namespace interfaces.Conexion
             return id;
         }
 
-        public void EliminarDocumento(Documento documento)
+        public bool EliminarDocumento(Documento documento)
         {
+            bool delete = false;
             string queryString = "DELETE DOCUMENTO WHERE carpeta=@carpeta AND ordenCarpeta=@ordenCarpeta AND fecha=@fecha AND " +
                                     "contenido=@contenido AND clave1=@clave1;";
 
@@ -101,7 +102,10 @@ namespace interfaces.Conexion
                 cmd.Parameters.AddWithValue("@clave1", documento.Clave1);
 
                 con.Open();
-                cmd.ExecuteNonQuery();
+                if (cmd.ExecuteNonQuery()>0)
+                {
+                    delete = true;
+                }
                 con.Close();
             }
 
@@ -110,7 +114,7 @@ namespace interfaces.Conexion
             {
                 EliminarCarpeta(documento.Carpeta);
             }
-
+            return delete;
         }
 
         public void EliminarCarpeta(string idcarpeta)
