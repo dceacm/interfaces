@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consultas));
             this.txtTema1 = new System.Windows.Forms.TextBox();
             this.gb_Consulta = new System.Windows.Forms.GroupBox();
             this.txtContenido = new System.Windows.Forms.TextBox();
@@ -182,6 +183,7 @@
             this.ClientSize = new System.Drawing.Size(716, 422);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.gb_Consulta);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consultas";
             this.Text = "Consultas";
             this.gb_Consulta.ResumeLayout(false);

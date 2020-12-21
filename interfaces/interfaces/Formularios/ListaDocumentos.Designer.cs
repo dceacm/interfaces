@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaDocumentos));
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -99,6 +100,7 @@
             this.ClientSize = new System.Drawing.Size(957, 527);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ListaDocumentos";
             this.Text = "Listado Documentos";
             this.Load += new System.EventHandler(this.Lista_Usuarios_Load);

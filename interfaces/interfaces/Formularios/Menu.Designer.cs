@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.btn_Consulta = new System.Windows.Forms.Button();
             this.btn_Alta = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -74,6 +75,7 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btn_Consulta);
             this.Controls.Add(this.btn_Alta);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
             this.Text = "Menú";
             this.ResumeLayout(false);

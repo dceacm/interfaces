@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dar_Alta));
             this.btn_DarAlta = new System.Windows.Forms.Button();
             this.tb_Tema3 = new System.Windows.Forms.TextBox();
             this.tb_Tema1 = new System.Windows.Forms.TextBox();
@@ -246,6 +247,7 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_DarAlta);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dar_Alta";
             this.Text = "Alta";
             this.gb_Alta.ResumeLayout(false);
