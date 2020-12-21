@@ -22,6 +22,8 @@ namespace interfaces
             InitializeComponent();
             btn_Aceptar.Visible = false;
             btn_DarAlta.Visible = true;
+
+            dtp_Fecha.CustomFormat = " ";
         }
 
         public Dar_Alta(Documento documento)
@@ -38,7 +40,7 @@ namespace interfaces
             btn_Aceptar.Visible = true;
             btn_DarAlta.Visible = false;
 
-            dtp_Fecha.CustomFormat = " ";
+            docOrigen = documento;
         }
       
         private void btn_DarAlta_Click(object sender, EventArgs e)

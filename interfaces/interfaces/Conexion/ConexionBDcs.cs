@@ -70,6 +70,7 @@ namespace interfaces.Conexion
             }
             return anadir;
         }
+
         public string GetLastID(String text)
         {
             string id = string.Empty;
@@ -90,8 +91,6 @@ namespace interfaces.Conexion
             string queryString = "DELETE DOCUMENTO WHERE carpeta=@carpeta AND ordenCarpeta=@ordenCarpeta AND fecha=@fecha AND " +
                                     "contenido=@contenido AND clave1=@clave1;";
 
-            //int count=CountDocumentos(documento.Carpeta);
-
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
@@ -109,34 +108,33 @@ namespace interfaces.Conexion
 
         public void ModificarDocumento(Documento documentoOrigen, Documento documento)
         {
-            string queryString = "UPDATE Documento SET carpeta=@carpeta, ordenCarpeta=@ordenCarpeta, fecha=@fecha, " +
-                                    "contenido=@contenido, clave1=@clave1, clave2=@clave2, clave3=@clave3 " +
-                                    "WHERE carpeta=@carpetaOr AND " +
-                                    "ordenCarpeta=@ordenCarpetaOr AND fecha=@fechaOr AND contenido=@contenidoOr AND " +
-                                    "clave1=@clave1Or AND clave2=@clave2Or AND clave3=@clave3Or;";
+            string queryString = "UPDATE Documento SET Carpeta=@carpeta, OrdenCarpeta=@ordenCarpeta, Fecha=@fecha, " +
+                                    "Contenido=@contenido, Clave1=@clave1, Clave2=@clave2, Clave3=@clave3 " +
+
+                                    "WHERE Carpeta=@carpetaOr AND OrdenCarpeta=@ordenCarpetaOr AND Fecha=@fechaOr AND " +
+                                    "Contenido=@contenidoOr"; 
             
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
                 cmd.Parameters.AddWithValue("@carpeta", int.Parse(documento.Carpeta));
                 cmd.Parameters.AddWithValue("@ordenCarpeta", int.Parse(documento.OrdenCarpeta));
-                cmd.Parameters.AddWithValue("@fecha", documentoOrigen.Fecha);
-                cmd.Parameters.AddWithValue("@contenido", documentoOrigen.Contenido);
-                cmd.Parameters.AddWithValue("@clave1", documentoOrigen.Clave1);
-                cmd.Parameters.AddWithValue("@clave2", documentoOrigen.Clave2);
-                cmd.Parameters.AddWithValue("@clave3", documentoOrigen.Clave3);
+                cmd.Parameters.AddWithValue("@fecha", documento.Fecha);
+                cmd.Parameters.AddWithValue("@contenido", documento.Contenido);
+                cmd.Parameters.AddWithValue("@clave1", documento.Clave1);
+                cmd.Parameters.AddWithValue("@clave2", documento.Clave2);
+                cmd.Parameters.AddWithValue("@clave3", documento.Clave3);
 
-                cmd.Parameters.AddWithValue("@carpetaOr", int.Parse(documento.Carpeta));
-                cmd.Parameters.AddWithValue("@ordenCarpetaOr", int.Parse(documento.OrdenCarpeta));
-                cmd.Parameters.AddWithValue("@fechaOr", documento.Fecha);
-                cmd.Parameters.AddWithValue("@contenidoOr", documento.Contenido);
-                cmd.Parameters.AddWithValue("@clave1Or", documento.Clave1);
-                cmd.Parameters.AddWithValue("@clave2Or", documento.Clave2);
-                cmd.Parameters.AddWithValue("@clave3Or", documento.Clave3);
+                cmd.Parameters.AddWithValue("@carpetaOr", int.Parse(documentoOrigen.Carpeta));
+                cmd.Parameters.AddWithValue("@ordenCarpetaOr", int.Parse(documentoOrigen.OrdenCarpeta));
+                cmd.Parameters.AddWithValue("@fechaOr", documentoOrigen.Fecha);
+                cmd.Parameters.AddWithValue("@contenidoOr", documentoOrigen.Contenido);
+                cmd.Parameters.AddWithValue("@clave1Or", documentoOrigen.Clave1);
+                cmd.Parameters.AddWithValue("@clave2Or", documentoOrigen.Clave2);
+                cmd.Parameters.AddWithValue("@clave3Or", documentoOrigen.Clave3);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                con.Close();
             }
         }
 
