@@ -119,7 +119,7 @@ namespace interfaces.Conexion
 
         public void EliminarCarpeta(string idcarpeta)
         {
-            string queryString = "(DELETE CARPETA WHERE CARPETAID=@carpetaid)";
+            string queryString = "DELETE CARPETA WHERE CARPETAID=@carpetaid";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))

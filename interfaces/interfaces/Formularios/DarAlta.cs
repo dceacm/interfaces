@@ -86,6 +86,7 @@ namespace interfaces
                 string cuerpo = "Documento modificado correctamente";
                 string cabecera = "Modificado";
                 MessageBox.Show(cuerpo, cabecera, botons);
+                this.Close();
             }
         }
 

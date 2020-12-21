@@ -115,6 +115,7 @@ namespace interfaces
                 {
                     bd.Add(per);
                 }
+                query = "SELECT * FROM Documento ";
             }
         }
 
@@ -122,7 +123,14 @@ namespace interfaces
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-
+            if (string.IsNullOrEmpty(doc.Clave2))
+            {
+                doc.Clave2 = null;
+            }
+            if (string.IsNullOrEmpty(doc.Clave3))
+            {
+                doc.Clave3 = null;
+            }
             if (con.EliminarDocumento(doc)) {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Exclamation;
@@ -148,8 +156,7 @@ namespace interfaces
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-            Console.WriteLine(doc.Carpeta);
-            new Dar_Alta(doc).Show();
+            new Dar_Alta(doc).ShowDialog();
             bd.Clear();
             Documentos();
         }
