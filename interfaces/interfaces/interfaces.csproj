@@ -146,8 +146,8 @@
     <Content Include="LogoSalesianosTransp.ico" />
     <None Include="Resources\logo1.png" />
     <None Include="Resources\logo.png" />
-    <None Include="Resources\logoboscos.jpg" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
@@ -160,5 +160,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+=======
+  <ItemGroup />
+>>>>>>> 73b8fb0a919e9c912db61e98172a86fac11a75b8
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
