@@ -41,7 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gb_Consulta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTema1
@@ -54,6 +57,7 @@
             // 
             // gb_Consulta
             // 
+            this.gb_Consulta.Controls.Add(this.btnLimpiar);
             this.gb_Consulta.Controls.Add(this.txtContenido);
             this.gb_Consulta.Controls.Add(this.txtTema3);
             this.gb_Consulta.Controls.Add(this.txtTema2);
@@ -114,9 +118,9 @@
             this.cbTema3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbTema3.Location = new System.Drawing.Point(18, 140);
             this.cbTema3.Name = "cbTema3";
-            this.cbTema3.Size = new System.Drawing.Size(75, 21);
+            this.cbTema3.Size = new System.Drawing.Size(74, 21);
             this.cbTema3.TabIndex = 10;
-            this.cbTema3.Text = "Tema 3";
+            this.cbTema3.Text = "Clave 3";
             this.cbTema3.UseVisualStyleBackColor = true;
             this.cbTema3.CheckedChanged += new System.EventHandler(this.cbTema3_CheckedChanged);
             // 
@@ -126,9 +130,9 @@
             this.cbTema2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbTema2.Location = new System.Drawing.Point(18, 95);
             this.cbTema2.Name = "cbTema2";
-            this.cbTema2.Size = new System.Drawing.Size(75, 21);
+            this.cbTema2.Size = new System.Drawing.Size(74, 21);
             this.cbTema2.TabIndex = 9;
-            this.cbTema2.Text = "Tema 2";
+            this.cbTema2.Text = "Clave 2";
             this.cbTema2.UseVisualStyleBackColor = true;
             this.cbTema2.CheckedChanged += new System.EventHandler(this.cbTema2_CheckedChanged);
             // 
@@ -138,9 +142,9 @@
             this.cbTema1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbTema1.Location = new System.Drawing.Point(18, 55);
             this.cbTema1.Name = "cbTema1";
-            this.cbTema1.Size = new System.Drawing.Size(75, 21);
+            this.cbTema1.Size = new System.Drawing.Size(74, 21);
             this.cbTema1.TabIndex = 8;
-            this.cbTema1.Text = "Tema 1";
+            this.cbTema1.Text = "Clave 1";
             this.cbTema1.UseVisualStyleBackColor = true;
             this.cbTema1.CheckedChanged += new System.EventHandler(this.cbTema1_CheckedChanged);
             // 
@@ -157,7 +161,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnBuscar.Location = new System.Drawing.Point(554, 84);
+            this.btnBuscar.Location = new System.Drawing.Point(554, 53);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(110, 40);
             this.btnBuscar.TabIndex = 6;
@@ -176,11 +180,33 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnLimpiar.Location = new System.Drawing.Point(554, 121);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(110, 40);
+            this.btnLimpiar.TabIndex = 15;
+            this.btnLimpiar.Text = "Limpiar Filtros";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::interfaces.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(246, 360);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 422);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.gb_Consulta);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -188,6 +214,7 @@
             this.Text = "Consultas";
             this.gb_Consulta.ResumeLayout(false);
             this.gb_Consulta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,5 +233,7 @@
         private System.Windows.Forms.CheckBox cbTema3;
         private System.Windows.Forms.CheckBox cbTema2;
         private System.Windows.Forms.CheckBox cbTema1;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

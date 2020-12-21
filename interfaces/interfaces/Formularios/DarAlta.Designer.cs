@@ -47,7 +47,9 @@
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gb_Alta = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gb_Alta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_DarAlta
@@ -238,11 +240,22 @@
             this.gb_Alta.TabIndex = 28;
             this.gb_Alta.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::interfaces.Properties.Resources.logo1;
+            this.pictureBox1.Location = new System.Drawing.Point(167, 413);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            // 
             // Dar_Alta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 475);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gb_Alta);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btn_Aceptar);
@@ -252,6 +265,7 @@
             this.Text = "Alta";
             this.gb_Alta.ResumeLayout(false);
             this.gb_Alta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +290,6 @@
         private System.Windows.Forms.Button btn_Aceptar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gb_Alta;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

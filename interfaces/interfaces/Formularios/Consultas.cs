@@ -97,6 +97,7 @@ namespace interfaces
             else
             {
                 txtTema1.Enabled = false;
+                txtTema1.Text = "";
             }
         }
 
@@ -109,6 +110,7 @@ namespace interfaces
             else
             {
                 txtTema2.Enabled = false;
+                txtTema2.Text = "";
             }
         }
 
@@ -121,6 +123,7 @@ namespace interfaces
             else
             {
                 txtTema3.Enabled = false;
+                txtTema3.Text = "";
             }
         }
 
@@ -129,17 +132,20 @@ namespace interfaces
             if (cbContenido.Checked)
             {
                 txtContenido.Enabled = true;
-                //btnVolver.Location = new Point(171, 316);
-                //gb_Consulta.Size = new Size(477, 300);
-                //this.Size = new Size(521, 414);
             }
             else
             {
                 txtContenido.Enabled = false;
-                //btnVolver.Location = new Point(171, 242);
-                //gb_Consulta.Size = new Size(477, 226);
-                //this.Size = new Size(521, 340);
+                txtContenido.Text = "";
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cbContenido.Checked=false;
+            cbTema1.Checked = false;
+            cbTema2.Checked = false;
+            cbTema3.Checked = false;
         }
     }
 }
