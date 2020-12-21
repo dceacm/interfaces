@@ -79,15 +79,14 @@ namespace interfaces
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             Documento docMod = new Documento(tb_Carpeta.Text, tb_Orden.Text, dtp_Fecha.Value, tb_Contenido.Text, tb_Tema1.Text, tb_Tema2.Text, tb_Tema3.Text);
-            bool aux=conexionBDcs.ModificarDocumento(docOrigen, docMod);
-            if (aux)
-            {
-                MessageBoxButtons botons = MessageBoxButtons.OK;
-                string cuerpo = "Documento modificado correctamente";
-                string cabecera = "Modificado";
-                MessageBox.Show(cuerpo, cabecera, botons);
-                this.Close();
-            }
+            conexionBDcs.ModificarDocumento(docOrigen, docMod);
+            
+            MessageBoxButtons botons = MessageBoxButtons.OK;
+            string cuerpo = "Documento modificado correctamente";
+            string cabecera = "Modificado";
+            MessageBox.Show(cuerpo, cabecera, botons);
+            this.Close();
+            
         }
 
         private void tb_Tema1_TextChanged(object sender, EventArgs e)

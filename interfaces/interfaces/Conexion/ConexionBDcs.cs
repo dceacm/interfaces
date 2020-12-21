@@ -132,7 +132,7 @@ namespace interfaces.Conexion
             }
         }
 
-        public bool ModificarDocumento(Documento documentoOrigen, Documento documento)
+        public void ModificarDocumento(Documento documentoOrigen, Documento documento)
         {
             string queryString = string.Empty;
             if (string.IsNullOrEmpty(documento.Clave2))
@@ -182,7 +182,7 @@ namespace interfaces.Conexion
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                return true;
+                //return true;
             }
 
             int aux = CountDocumentos(documento.Carpeta);
