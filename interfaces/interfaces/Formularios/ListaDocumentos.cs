@@ -16,22 +16,42 @@ namespace interfaces
         private int aux;
         private string query = "SELECT * FROM Documento ";
 
+        bool t1;
+        bool t2;
+        bool t3;
+        bool c;
+        string tema1;
+        string tema2;
+        string tema3;
+        string contenido;
+
         private Conexion.ConexionBDcs con = new Conexion.ConexionBDcs();
         private BindingSource bd;
         
         public ListaDocumentos(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
         {
             InitializeComponent();
-            Documentos(t1, t2, t3, c, tema1, tema2, tema3, contenido);
-        }
 
-        private void Documentos(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
-        {
             bd = new BindingSource();
             bd.DataSource = typeof(Documento);
             dataGridView1.DataSource = bd;
             dataGridView1.AutoGenerateColumns = true;
 
+            this.t1 = t1;
+            this.t2 = t2;
+            this.t3 = t3;
+            this.c = c;
+
+            this.tema1 = tema1;
+            this.tema2 = tema2;
+            this.tema3 = tema3;
+            this.contenido = contenido;
+
+            Documentos();
+        }
+
+        private void Documentos()
+        {
             if (!t1 && !t2 && !t3 && !c)
             {
                 List<Documento> l = con.GetDocumentos(query);
@@ -103,6 +123,8 @@ namespace interfaces
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
             con.EliminarDocumento(doc);
+            bd.Clear();
+            Documentos();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -111,6 +133,8 @@ namespace interfaces
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
             Console.WriteLine(doc.Carpeta);
             new Dar_Alta(doc).Show();
+            bd.Clear();
+            Documentos();
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
