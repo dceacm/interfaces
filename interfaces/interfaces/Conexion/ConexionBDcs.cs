@@ -104,6 +104,28 @@ namespace interfaces.Conexion
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
+
+            int aux = CountDocumentos(documento.Carpeta);
+            if (aux == 0)
+            {
+                EliminarCarpeta(documento.Carpeta);
+            }
+
+        }
+
+        public void EliminarCarpeta(string idcarpeta)
+        {
+            string queryString = "(DELETE CARPETA WHERE CARPETAID=@carpetaid)";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(queryString, con))
+            {
+                cmd.Parameters.AddWithValue("@carpetaid", int.Parse(idcarpeta));
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
         }
 
         public void ModificarDocumento(Documento documentoOrigen, Documento documento)
@@ -157,6 +179,12 @@ namespace interfaces.Conexion
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
+
+            int aux = CountDocumentos(documento.Carpeta);
+            if (aux == 0)
+            {
+                EliminarCarpeta(documento.Carpeta);
+            }
         }
 
         public int CountDocumentos(string carpeta)
@@ -166,7 +194,7 @@ namespace interfaces.Conexion
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
-                cmd.Parameters.AddWithValue("@carpeta", carpeta);
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(carpeta));
                 con.Open();
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 return count;
