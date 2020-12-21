@@ -122,7 +122,7 @@ namespace interfaces
         {
             Documento doc;
             doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-<<<<<<< HEAD
+
             if (con.EliminarDocumento(doc)) {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Exclamation;
@@ -139,11 +139,9 @@ namespace interfaces
                 MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
 
-=======
             con.EliminarDocumento(doc);
             bd.Clear();
             Documentos();
->>>>>>> 725c8e5d154df0380e317b0ec0b942df4c00da97
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
