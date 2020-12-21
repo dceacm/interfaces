@@ -108,12 +108,28 @@ namespace interfaces.Conexion
 
         public void ModificarDocumento(Documento documentoOrigen, Documento documento)
         {
-            string queryString = "UPDATE Documento SET Carpeta=@carpeta, OrdenCarpeta=@ordenCarpeta, Fecha=@fecha, " +
+            string queryString = string.Empty;
+            if (string.IsNullOrEmpty(documento.Clave2))
+            {
+                queryString = "UPDATE Documento SET Carpeta=@carpeta, OrdenCarpeta=@ordenCarpeta, Fecha=@fecha, " +
+                                      "Contenido=@contenido, Clave1=@clave1, Clave2=null, Clave3=null " +
+                                      "WHERE Carpeta=@carpetaOr AND OrdenCarpeta=@ordenCarpetaOr AND Fecha=@fechaOr AND " +
+                                      "Contenido=@contenidoOr";
+            }
+            else if (string.IsNullOrEmpty(documento.Clave3))
+            {
+                queryString = "UPDATE Documento SET Carpeta=@carpeta, OrdenCarpeta=@ordenCarpeta, Fecha=@fecha, " +
+                                     "Contenido=@contenido, Clave1=@clave1, Clave2=@clave2, Clave3=null " +
+                                     "WHERE Carpeta=@carpetaOr AND OrdenCarpeta=@ordenCarpetaOr AND Fecha=@fechaOr AND " +
+                                     "Contenido=@contenidoOr";
+            }
+            else
+            {
+                queryString = "UPDATE Documento SET Carpeta=@carpeta, OrdenCarpeta=@ordenCarpeta, Fecha=@fecha, " +
                                     "Contenido=@contenido, Clave1=@clave1, Clave2=@clave2, Clave3=@clave3 " +
-
                                     "WHERE Carpeta=@carpetaOr AND OrdenCarpeta=@ordenCarpetaOr AND Fecha=@fechaOr AND " +
-                                    "Contenido=@contenidoOr"; 
-            
+                                    "Contenido=@contenidoOr";
+            }
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
@@ -122,16 +138,21 @@ namespace interfaces.Conexion
                 cmd.Parameters.AddWithValue("@fecha", documento.Fecha);
                 cmd.Parameters.AddWithValue("@contenido", documento.Contenido);
                 cmd.Parameters.AddWithValue("@clave1", documento.Clave1);
-                cmd.Parameters.AddWithValue("@clave2", documento.Clave2);
-                cmd.Parameters.AddWithValue("@clave3", documento.Clave3);
+                if (!string.IsNullOrEmpty(documento.Clave2))
+                {
+                    cmd.Parameters.AddWithValue("@clave2", documento.Clave2);
+                }
+
+                if (!string.IsNullOrEmpty(documento.Clave3))
+                {
+                    cmd.Parameters.AddWithValue("@clave3", documento.Clave3);
+                }
+
 
                 cmd.Parameters.AddWithValue("@carpetaOr", int.Parse(documentoOrigen.Carpeta));
                 cmd.Parameters.AddWithValue("@ordenCarpetaOr", int.Parse(documentoOrigen.OrdenCarpeta));
                 cmd.Parameters.AddWithValue("@fechaOr", documentoOrigen.Fecha);
                 cmd.Parameters.AddWithValue("@contenidoOr", documentoOrigen.Contenido);
-                cmd.Parameters.AddWithValue("@clave1Or", documentoOrigen.Clave1);
-                cmd.Parameters.AddWithValue("@clave2Or", documentoOrigen.Clave2);
-                cmd.Parameters.AddWithValue("@clave3Or", documentoOrigen.Clave3);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
