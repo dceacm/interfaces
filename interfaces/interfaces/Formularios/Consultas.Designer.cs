@@ -114,9 +114,9 @@
             this.cbTema3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbTema3.Location = new System.Drawing.Point(18, 140);
             this.cbTema3.Name = "cbTema3";
-            this.cbTema3.Size = new System.Drawing.Size(75, 21);
+            this.cbTema3.Size = new System.Drawing.Size(74, 21);
             this.cbTema3.TabIndex = 10;
-            this.cbTema3.Text = "Tema 3";
+            this.cbTema3.Text = "Clave 3";
             this.cbTema3.UseVisualStyleBackColor = true;
             this.cbTema3.CheckedChanged += new System.EventHandler(this.cbTema3_CheckedChanged);
             // 
@@ -126,9 +126,9 @@
             this.cbTema2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbTema2.Location = new System.Drawing.Point(18, 95);
             this.cbTema2.Name = "cbTema2";
-            this.cbTema2.Size = new System.Drawing.Size(75, 21);
+            this.cbTema2.Size = new System.Drawing.Size(74, 21);
             this.cbTema2.TabIndex = 9;
-            this.cbTema2.Text = "Tema 2";
+            this.cbTema2.Text = "Clave 2";
             this.cbTema2.UseVisualStyleBackColor = true;
             this.cbTema2.CheckedChanged += new System.EventHandler(this.cbTema2_CheckedChanged);
             // 
@@ -138,9 +138,9 @@
             this.cbTema1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.cbTema1.Location = new System.Drawing.Point(18, 55);
             this.cbTema1.Name = "cbTema1";
-            this.cbTema1.Size = new System.Drawing.Size(75, 21);
+            this.cbTema1.Size = new System.Drawing.Size(74, 21);
             this.cbTema1.TabIndex = 8;
-            this.cbTema1.Text = "Tema 1";
+            this.cbTema1.Text = "Clave 1";
             this.cbTema1.UseVisualStyleBackColor = true;
             this.cbTema1.CheckedChanged += new System.EventHandler(this.cbTema1_CheckedChanged);
             // 

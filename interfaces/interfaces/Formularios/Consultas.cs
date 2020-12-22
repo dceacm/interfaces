@@ -30,55 +30,55 @@ namespace interfaces
         {
             if(cbTema1.Checked && txtTema1.Text=="")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 1.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 1.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else if (cbTema2.Checked && txtTema2.Text == "")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 2.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 2.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else if (cbTema3.Checked && txtTema3.Text == "")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 3.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 3.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else if (cbContenido.Checked && txtContenido.Text == "")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del contenido.", "Error en la introducción de datos.", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del contenido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else
             {
-                bool t1 = false;
-                bool t2 = false;
-                bool t3 = false;
-                bool c = false;
-                string tema1 = null;
-                string tema2 = null;
-                string tema3 = null;
+                bool C1 = false;
+                bool C2 = false;
+                bool C3 = false;
+                bool cont = false;
+                string clave1 = null;
+                string clave2 = null;
+                string clave3 = null;
                 string contenido = null;
 
                 if (cbTema1.Checked)
                 {
-                    t1 = true;
-                    tema1 = txtTema1.Text;
+                    C1 = true;
+                    clave1 = txtTema1.Text;
                 }
                 if (cbTema2.Checked)
                 {
-                    t2 = true;
-                    tema2 = txtTema2.Text;
+                    C2 = true;
+                    clave2 = txtTema2.Text;
                 }
                 if (cbTema3.Checked)
                 {
-                    t3 = true;
-                    tema3 = txtTema3.Text;
+                    C3 = true;
+                    clave3 = txtTema3.Text;
                 }
                 if (cbContenido.Checked)
                 {
-                    c = true;
+                    cont = true;
                     contenido = txtContenido.Text;
                 }
 
-                ListaDocumentos l = new ListaDocumentos(t1, t2, t3, c, tema1, tema2, tema3, contenido);
+                ListaDocumentos listaDocumentos = new ListaDocumentos(C1, C2, C3, cont, clave1, clave2, clave3, contenido);
                 this.Visible = false;
-                l.ShowDialog();
+                listaDocumentos.ShowDialog();
                 this.Visible = true;
             }            
         }       
@@ -129,16 +129,10 @@ namespace interfaces
             if (cbContenido.Checked)
             {
                 txtContenido.Enabled = true;
-                //btnVolver.Location = new Point(171, 316);
-                //gb_Consulta.Size = new Size(477, 300);
-                //this.Size = new Size(521, 414);
             }
             else
             {
                 txtContenido.Enabled = false;
-                //btnVolver.Location = new Point(171, 242);
-                //gb_Consulta.Size = new Size(477, 226);
-                //this.Size = new Size(521, 340);
             }
         }
     }

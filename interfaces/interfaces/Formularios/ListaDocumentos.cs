@@ -16,19 +16,19 @@ namespace interfaces
         private int aux;
         private string query = "SELECT * FROM Documento ";
 
-        bool t1;
-        bool t2;
-        bool t3;
-        bool c;
-        string tema1;
-        string tema2;
-        string tema3;
+        bool c1;
+        bool c2;
+        bool c3;
+        bool cont;
+        string clave1;
+        string clave2;
+        string clave3;
         string contenido;
 
         private Conexion.ConexionBDcs con = new Conexion.ConexionBDcs();
         private BindingSource bd;
         
-        public ListaDocumentos(bool t1, bool t2, bool t3, bool c, string tema1, string tema2, string tema3, string contenido)
+        public ListaDocumentos(bool c1, bool c2, bool c3, bool cont, string clave1, string clave2, string clave3, string contenido)
         {
             InitializeComponent();
 
@@ -37,14 +37,14 @@ namespace interfaces
             dataGridView1.DataSource = bd;
             dataGridView1.AutoGenerateColumns = true;
 
-            this.t1 = t1;
-            this.t2 = t2;
-            this.t3 = t3;
-            this.c = c;
+            this.c1 = c1;
+            this.c2 = c2;
+            this.c3 = c3;
+            this.cont = cont;
 
-            this.tema1 = tema1;
-            this.tema2 = tema2;
-            this.tema3 = tema3;
+            this.clave1 = clave1;
+            this.clave2 = clave2;
+            this.clave3 = clave3;
             this.contenido = contenido;
 
             Documentos();
@@ -52,12 +52,13 @@ namespace interfaces
 
         private void Documentos()
         {
-            if (!t1 && !t2 && !t3 && !c)
+            if (!c1 && !c2 && !c3 && !cont)
             {
-                List<Documento> l = con.GetDocumentos(query);
-                foreach (Documento per in l)
+                List<Documento> listaDocumentos = con.GetDocumentos(query);
+
+                foreach (Documento documento in listaDocumentos)
                 {
-                    bd.Add(per);
+                    bd.Add(documento);
                 }
             }
             else
@@ -65,13 +66,13 @@ namespace interfaces
                 query += "WHERE ";
                 bool first = true;
 
-                if (t1)
+                if (c1)
                 {
-                    query += "Clave1 = '" + tema1 + "'";
+                    query += "Clave1 = '" + clave1 + "'";
                     first = false;
                 }
 
-                if (t2)
+                if (c2)
                 {
                     if (!first)
                     {
@@ -81,10 +82,10 @@ namespace interfaces
                     {
                         first = false;
                     }
-                    query += "Clave2 = '" + tema2 + "'";
+                    query += "Clave2 = '" + clave2 + "'";
                 }
 
-                if (t3)
+                if (c3)
                 {
                     if (!first)
                     {
@@ -94,10 +95,10 @@ namespace interfaces
                     {
                         first = false;
                     }
-                    query += "Clave3 = '" + tema3 + "'";
+                    query += "Clave3 = '" + clave3 + "'";
                 }
 
-                if (c)
+                if (cont)
                 {
                     if (!first)
                     {
@@ -110,8 +111,9 @@ namespace interfaces
                     query += "Contenido = '" + contenido + "'";
                 }
 
-                List<Documento> l = con.GetDocumentos(query);
-                foreach (Documento per in l)
+                List<Documento> listaDocumentos = con.GetDocumentos(query);
+
+                foreach (Documento per in listaDocumentos)
                 {
                     bd.Add(per);
                 }
@@ -173,6 +175,70 @@ namespace interfaces
         {
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int currentpage = 0;
+            int pagesleft = 0;
+            int rec = 0;
+            int width = 3000;
+            int height = 10000;
+
+            Font font = new Font("Time New Romans", 10, FontStyle.Regular);
+            List<Documento> listaDocumentos = con.GetDocumentos(query);
+
+            int recCount = listaDocumentos.Count;
+            int pageCount = (recCount + 37 - 1) / 37;
+            int y = 80;
+            //int z = 50;
+
+            rec = rec += 1;
+            currentpage = currentpage + 1;
+
+            if (currentpage == 1)
+            {
+                pagesleft = pageCount - 1;
+            }
+
+            ////Cabecera
+            //e.Graphics.DrawString("CAR".PadLeft(2, '0') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(50, z, width, height));
+            //e.Graphics.DrawString("ORD".PadLeft(3, '0') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(80, z, width, height));
+            //e.Graphics.DrawString("FECH".PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(120, z, width, height));
+            //e.Graphics.DrawString("CONT".PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(220, z, width, height));
+            //e.Graphics.DrawString("C1".PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(350, z, width, height));
+            //e.Graphics.DrawString("C2".PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(500, z, width, height));
+            //e.Graphics.DrawString("C3" + " \n", font, Brushes.Black, new System.Drawing.Rectangle(550, z, width, height));
+
+            //Datos
+            for (; rec -1 < recCount; rec++)
+            {
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Carpeta.PadLeft(2,'0') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(50, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].OrdenCarpeta.PadLeft(3, '0') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(80, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Fecha.ToString("dd/MM/yyy").PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(120, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Contenido.PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(205, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Clave1.PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(320, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Clave2.PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(500, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Clave3.PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(700, y, width, height));
+
+                y += 25;
+
+                if (rec % 37 == 0)
+                {
+                    y = 80;
+                    break;
+                }
+            }
+
+            e.HasMorePages = currentpage < pageCount;
         }
     }
 }
