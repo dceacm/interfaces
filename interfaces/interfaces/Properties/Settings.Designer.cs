@@ -26,8 +26,8 @@ namespace interfaces.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1, 1433; Initial Catalog=AdministracionDocumentosLosBoscos; I" +
-            "ntegrated Security=False; User Id=sa;Password=Pa$$w0rd;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=\"127.0.0.1, 1433\";Initial Catalog=AdministracionDocumentosLosBoscos;U" +
+            "ser ID=sa;Password=Pa$$w0rd")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));

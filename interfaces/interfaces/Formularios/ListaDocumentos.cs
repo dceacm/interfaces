@@ -151,7 +151,7 @@ namespace interfaces
             Documento documento;
             documento = (Documento)dataGridView1.CurrentRow.DataBoundItem;
             Console.WriteLine(documento.Carpeta);
-            new DarAlta(documento).Show();
+            new DarAlta(documento).ShowDialog();
             bd.Clear();
             Documentos();
         }
@@ -223,7 +223,7 @@ namespace interfaces
             {
                 e.Graphics.DrawString(listaDocumentos[rec - 1].Carpeta.PadLeft(2,'0') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(50, y, width, height));
                 e.Graphics.DrawString(listaDocumentos[rec - 1].OrdenCarpeta.PadLeft(3, '0') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(80, y, width, height));
-                e.Graphics.DrawString(listaDocumentos[rec - 1].Fecha.ToString("dd/MM/yyy").PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(120, y, width, height));
+                e.Graphics.DrawString(listaDocumentos[rec - 1].Fecha.ToString("dd/MM/yyyy").PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(120, y, width, height));
                 e.Graphics.DrawString(listaDocumentos[rec - 1].Contenido.PadRight(30, ' ') + "\n", font, Brushes.Black, new System.Drawing.Rectangle(205, y, width, height));
                 e.Graphics.DrawString(listaDocumentos[rec - 1].Clave1.PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(320, y, width, height));
                 e.Graphics.DrawString(listaDocumentos[rec - 1].Clave2.PadRight(30, ' ') + " \n", font, Brushes.Black, new System.Drawing.Rectangle(500, y, width, height));
