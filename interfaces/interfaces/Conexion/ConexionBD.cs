@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace interfaces.Conexion
 {
-    public class ConexionBDcs
+    public class ConexionBD
     {
         public string connectionString = Settings.Default.connectionString;
 
@@ -71,7 +71,7 @@ namespace interfaces.Conexion
             return anadir;
         }
 
-        public string GetLastID(String text)
+        public string ObtenerUltidoId(string carpeta)
         {
             string id = string.Empty;
             string queryString = "SELECT ISNULL((SELECT TOP 1 OrdenCarpeta FROM Documento WHERE carpeta=@carpeta ORDER BY OrdenCarpeta DESC),0);";
@@ -79,7 +79,7 @@ namespace interfaces.Conexion
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
-                cmd.Parameters.AddWithValue("@carpeta", int.Parse(text));
+                cmd.Parameters.AddWithValue("@carpeta", int.Parse(carpeta));
                 con.Open();
                 id = (int.Parse(cmd.ExecuteScalar().ToString())+1).ToString().PadLeft(3,'0');              
             }
@@ -109,11 +109,11 @@ namespace interfaces.Conexion
                 con.Close();
             }
 
-            int aux = CountDocumentos(documento.Carpeta);
-            if (aux == 0)
+            if (CountDocumentos(documento.Carpeta) == 0)
             {
                 EliminarCarpeta(documento.Carpeta);
             }
+
             return delete;
         }
 
@@ -135,6 +135,7 @@ namespace interfaces.Conexion
         public bool ModificarDocumento(Documento documentoOrigen, Documento documento)
         {
             string queryString = string.Empty;
+
             if (string.IsNullOrEmpty(documento.Clave2))
             {
                 queryString = "UPDATE Documento SET Carpeta=@carpeta, OrdenCarpeta=@ordenCarpeta, Fecha=@fecha, " +
@@ -156,6 +157,7 @@ namespace interfaces.Conexion
                                     "WHERE Carpeta=@carpetaOr AND OrdenCarpeta=@ordenCarpetaOr AND Fecha=@fechaOr AND " +
                                     "Contenido=@contenidoOr";
             }
+
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryString, con))
             {
@@ -182,13 +184,13 @@ namespace interfaces.Conexion
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                return true;
-            }
 
-            int aux = CountDocumentos(documento.Carpeta);
-            if (aux == 0)
-            {
-                EliminarCarpeta(documento.Carpeta);
+                if (CountDocumentos(documento.Carpeta) == 0)
+                {
+                    EliminarCarpeta(documento.Carpeta);
+                }
+
+                return true;
             }
         }
 
@@ -202,11 +204,13 @@ namespace interfaces.Conexion
                 cmd.Parameters.AddWithValue("@carpeta", int.Parse(carpeta));
                 con.Open();
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
+
                 return count;
             }
         }
 
-        public List<Documento> GetDocumentos(string queryString) {
+        public List<Documento> GetDocumentos(string queryString)
+        {
             List<Documento> list = new List<Documento>();
             
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -225,8 +229,8 @@ namespace interfaces.Conexion
                         string clave2 = reader["Clave2"].ToString();
                         string clave3 = reader["Clave3"].ToString();
 
-                        Documento d = new Documento(carpeta, ordenCarpeta, fecha, contenido, clave1, clave2, clave3);
-                        list.Add(d);
+                        Documento documento = new Documento(carpeta, ordenCarpeta, fecha, contenido, clave1, clave2, clave3);
+                        list.Add(documento);
                     }
                 }
                 

@@ -25,7 +25,7 @@ namespace interfaces
         string clave3;
         string contenido;
 
-        private Conexion.ConexionBDcs con = new Conexion.ConexionBDcs();
+        private Conexion.ConexionBD connexionBD = new Conexion.ConexionBD();
         private BindingSource bd;
         
         public ListaDocumentos(bool c1, bool c2, bool c3, bool cont, string clave1, string clave2, string clave3, string contenido)
@@ -54,7 +54,7 @@ namespace interfaces
         {
             if (!c1 && !c2 && !c3 && !cont)
             {
-                List<Documento> listaDocumentos = con.GetDocumentos(query);
+                List<Documento> listaDocumentos = connexionBD.GetDocumentos(query);
 
                 foreach (Documento documento in listaDocumentos)
                 {
@@ -111,47 +111,47 @@ namespace interfaces
                     query += "Contenido = '" + contenido + "'";
                 }
 
-                List<Documento> listaDocumentos = con.GetDocumentos(query);
+                List<Documento> listaDocumentos = connexionBD.GetDocumentos(query);
 
-                foreach (Documento per in listaDocumentos)
+                foreach (Documento documento in listaDocumentos)
                 {
-                    bd.Add(per);
+                    bd.Add(documento);
                 }
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Documento doc;
-            doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
+            Documento documento;
+            documento = (Documento)dataGridView1.CurrentRow.DataBoundItem;
 
-            if (con.EliminarDocumento(doc)) {
+            if (connexionBD.EliminarDocumento(documento)) {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Exclamation;
-                string cuerpo = "Se ha eliminado el documento correctamente.";
-                string cabecera = "ERROR";
+                MessageBoxIcon icon = MessageBoxIcon.None;
+                string cuerpo = "Documento eliminado con éxito.";
+                string cabecera = "CORRECTO";
                 MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
             else
             {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Exclamation;
-                string cuerpo = "No se ha eliminado correctamente.";
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                string cuerpo = "No se ha podido eliminar.";
                 string cabecera = "ERROR";
                 MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
 
-            con.EliminarDocumento(doc);
+            connexionBD.EliminarDocumento(documento);
             bd.Clear();
             Documentos();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Documento doc;
-            doc = (Documento)dataGridView1.CurrentRow.DataBoundItem;
-            Console.WriteLine(doc.Carpeta);
-            new Dar_Alta(doc).Show();
+            Documento documento;
+            documento = (Documento)dataGridView1.CurrentRow.DataBoundItem;
+            Console.WriteLine(documento.Carpeta);
+            new DarAlta(documento).Show();
             bd.Clear();
             Documentos();
         }
@@ -194,7 +194,7 @@ namespace interfaces
             int height = 10000;
 
             Font font = new Font("Time New Romans", 10, FontStyle.Regular);
-            List<Documento> listaDocumentos = con.GetDocumentos(query);
+            List<Documento> listaDocumentos = connexionBD.GetDocumentos(query);
 
             int recCount = listaDocumentos.Count;
             int pageCount = (recCount + 37 - 1) / 37;

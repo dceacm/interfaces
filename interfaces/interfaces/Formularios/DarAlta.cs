@@ -12,12 +12,12 @@ using interfaces.Conexion;
 
 namespace interfaces
 {
-    public partial class Dar_Alta : Form
+    public partial class DarAlta : Form
     {
-        ConexionBDcs conexionBDcs = new ConexionBDcs();
+        ConexionBD conexionBD = new ConexionBD();
         Documento docOrigen = null;
 
-        public Dar_Alta()
+        public DarAlta()
         {
             InitializeComponent();
             btn_Aceptar.Visible = false;
@@ -26,7 +26,7 @@ namespace interfaces
             dtp_Fecha.CustomFormat = " ";
         }
 
-        public Dar_Alta(Documento documento)
+        public DarAlta(Documento documento)
         {
             InitializeComponent();
             tb_Carpeta.Text = documento.Carpeta;
@@ -48,17 +48,17 @@ namespace interfaces
             if (dtp_Fecha.Text == " " || string.IsNullOrEmpty(tb_Contenido.Text)||string.IsNullOrEmpty(tb_Tema1.Text))
             {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Exclamation;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
                 string cuerpo = "Falta información.";
                 string cabecera = "ERROR";
                 MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
             else
             {
-                tb_Orden.Text = conexionBDcs.GetLastID(tb_Carpeta.Text);
+                tb_Orden.Text = conexionBD.ObtenerUltidoId(tb_Carpeta.Text);
                 Documento doc = new Documento(tb_Carpeta.Text,tb_Orden.Text,DateTime.Parse(dtp_Fecha.Text),tb_Contenido.Text,tb_Tema1.Text,tb_Tema2.Text,tb_Tema3.Text);
 
-                if (conexionBDcs.AnadirDocumento(doc))
+                if (conexionBD.AnadirDocumento(doc))
                 {
                     tb_Tema1.Text = string.Empty;
                     tb_Tema2.Text = string.Empty;
@@ -70,22 +70,24 @@ namespace interfaces
                 }
 
                 MessageBoxButtons botons = MessageBoxButtons.OK;
-                string cuerpo ="Se ha dado de alta correctamente.";
+                MessageBoxIcon icon = MessageBoxIcon.None;
+                string cuerpo ="Documento dado de alta correctamente.";
                 string cabecera = "CORRECTO";
-                MessageBox.Show(cuerpo, cabecera, botons);
+                MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             Documento docMod = new Documento(tb_Carpeta.Text, tb_Orden.Text, dtp_Fecha.Value, tb_Contenido.Text, tb_Tema1.Text, tb_Tema2.Text, tb_Tema3.Text);
-            bool aux=conexionBDcs.ModificarDocumento(docOrigen, docMod);
+            bool aux=conexionBD.ModificarDocumento(docOrigen, docMod);
             if (aux)
             {
                 MessageBoxButtons botons = MessageBoxButtons.OK;
-                string cuerpo = "Documento modificado correctamente";
-                string cabecera = "Modificado";
-                MessageBox.Show(cuerpo, cabecera, botons);
+                MessageBoxIcon icon = MessageBoxIcon.None;
+                string cuerpo = "Documento modificado correctamente.";
+                string cabecera = "CORRECTO";
+                MessageBox.Show(cuerpo, cabecera, botons, icon);
             }
         }
 
@@ -118,12 +120,13 @@ namespace interfaces
         private void dtp_Fecha_Leave(object sender, EventArgs e)
         {
             tb_Carpeta.Text = dtp_Fecha.Value.Year.ToString().Substring(2);
+            tb_Orden.Text = conexionBD.ObtenerUltidoId(tb_Carpeta.Text);
         }
 
         private void btnMod_Click(object sender, EventArgs e)
         {
             Documento docMod = new Documento(tb_Carpeta.Text, tb_Orden.Text, dtp_Fecha.Value, tb_Contenido.Text, tb_Tema1.Text, tb_Tema2.Text, tb_Tema3.Text);
-            conexionBDcs.ModificarDocumento(docOrigen, docMod);
+            conexionBD.ModificarDocumento(docOrigen, docMod);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

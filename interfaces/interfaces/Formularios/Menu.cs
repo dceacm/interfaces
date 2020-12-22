@@ -20,7 +20,7 @@ namespace interfaces
         private void btn_Alta_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Dar_Alta da = new Dar_Alta();
+            DarAlta da = new DarAlta();
             da.ShowDialog();
             this.Visible = true;
         }

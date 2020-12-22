@@ -30,19 +30,19 @@ namespace interfaces
         {
             if(cbTema1.Checked && txtTema1.Text=="")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 1.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 1.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (cbTema2.Checked && txtTema2.Text == "")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 2.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 2.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (cbTema3.Checked && txtTema3.Text == "")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 3.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del tema 3.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (cbContenido.Checked && txtContenido.Text == "")
             {
-                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del contenido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("Debe introducir un parámetro de búsqueda en el cuadro del contenido.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
